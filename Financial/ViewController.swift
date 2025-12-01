@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
+    var viewModel: ExpenseViewModel!
     
     @IBOutlet weak var headerLabel: UILabel!
     
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     
     var dayRemains : Int
     {
-        return startMoney/everyDayMoney
+        return (startMoney-viewModel.getExpensesSumm())/everyDayMoney
         
     }
     
@@ -53,8 +53,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        startMoney = 1000000
-        everyDayMoney = 4500
+        if UserDefaults.standard.object(forKey: "startMoney") == nil
+        {
+            UserDefaults.standard.setValue(200000, forKey: "startMoney")
+            
+        }
+       
+        
+        if  UserDefaults.standard.object(forKey: "everyDayMoney") == nil
+        {
+            UserDefaults.standard.setValue(4500, forKey: "everyDayMoney")
+            
+        }
+  
+       
+        startMoney = UserDefaults.standard.integer(forKey:"startMoney")
+            everyDayMoney = UserDefaults.standard.integer(forKey:"everyDayMoney")
+       
+        
+        
+       
+       
         
         
         headerLabel.textColor = .white
@@ -77,6 +96,10 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.calculateDays()
+    }
+    
     
     private func calculateDays()
     {
@@ -88,15 +111,18 @@ class ViewController: UIViewController {
         dateFormatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русский язык
         
         let formattedDate = dateFormatter.string(from: targetDate)
+        
         dayRemainsLabel.text = "Хватит примерно на \(dayRemains) дней. До \(formattedDate)"
         
         
         if dayRemains>30
         {
+            dayRemainsLabel.text = "Хватит примерно на \(dayRemains) дней. До \(formattedDate)"
             reactLabel.text = "😇"
         }
         else
         {
+            dayRemainsLabel.text = "Средств почти нет"
             reactLabel.text = "🥶"
         }
         
@@ -140,12 +166,7 @@ class ViewController: UIViewController {
                 self.startMoney = money
                 
             }
-            
-            
-            
-            
-            
-        }
+       }
         
         let alertClose = UIAlertAction(title: "Закрыть", style: .cancel)
         alertController.addAction(alertOk)
@@ -194,6 +215,44 @@ class ViewController: UIViewController {
             }
             
             
+        }
+        
+        let alertClose = UIAlertAction(title: "Закрыть", style: .cancel)
+        alertController.addAction(alertOk)
+        alertController.addAction(alertClose)
+        
+        present(alertController,animated: true)
+        
+        
+    }
+    
+    @IBAction func addFound(_ sender: UIButton)
+    {
+        var alertController = UIAlertController(title: "Расход", message: "Введите расход", preferredStyle: .alert)
+        
+        alertController.addTextField
+        {
+            (textField) in
+            
+            textField.placeholder = "Трата"
+         
+        }
+        alertController.addTextField
+        {
+            (textField) in
+            
+            textField.placeholder = "0"
+            textField.keyboardType = .numberPad
+         
+        }
+        let alertOk = UIAlertAction(title: "OK", style: .default)
+        {
+            [weak alertController] _ in
+            
+            let title = alertController?.textFields?[0].text ?? ""
+            let amount = Int(alertController?.textFields?[1].text ?? "") ?? 0
+            self.viewModel.addExpense(descFound: title, moneyFound: amount)
+            self.calculateDays()
             
             
             
@@ -207,6 +266,7 @@ class ViewController: UIViewController {
         
         
     }
+    
     
     
     

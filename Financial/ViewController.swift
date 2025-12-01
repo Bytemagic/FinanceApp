@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         dayRemainsLabel.text = "Хватит примерно на \(dayRemains) дней. До \(formattedDate)"
         
         
-        if dayRemains>30
+        if dayRemains>10
         {
             dayRemainsLabel.text = "Хватит примерно на \(dayRemains) дней. До \(formattedDate)"
             reactLabel.text = "😇"

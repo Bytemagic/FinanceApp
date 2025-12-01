@@ -18,98 +18,6 @@
             endingLineNumber = "15"
             landmarkName = "ViewController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "770255FC-6F2D-4296-BF9D-53845F027C3F - f69ce06ef27afd87"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Financial.ViewController.startBalanceInfoLabel.getter : Swift.Optional&lt;__C.UILabel&gt;"
-                  moduleName = "Financial"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/MyProjects/MyFin/Financial/Financial/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "85">
-               </Location>
-               <Location
-                  uuid = "770255FC-6F2D-4296-BF9D-53845F027C3F - b2d689cf0a245193"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Financial.ViewController.startBalanceInfoLabel.setter : Swift.Optional&lt;__C.UILabel&gt;"
-                  moduleName = "Financial"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/MyProjects/MyFin/Financial/Financial/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "136">
-               </Location>
-               <Location
-                  uuid = "770255FC-6F2D-4296-BF9D-53845F027C3F - 4ec719d7c6005482"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Financial.ViewController.startBalanceInfoLabel.modify : Swift.Optional&lt;__C.UILabel&gt;"
-                  moduleName = "Financial"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/MyProjects/MyFin/Financial/Financial/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "770255FC-6F2D-4296-BF9D-53845F027C3F - 5d3cd1b4051e9c37"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Financial.ViewController.startBalanceInfoLabel.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Financial"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/MyProjects/MyFin/Financial/Financial/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "26">
-               </Location>
-               <Location
-                  uuid = "770255FC-6F2D-4296-BF9D-53845F027C3F - 5e001096a1b9de8b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Financial.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Financial.ViewController"
-                  moduleName = "Financial"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/MyProjects/MyFin/Financial/Financial/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "200">
-               </Location>
-               <Location
-                  uuid = "770255FC-6F2D-4296-BF9D-53845F027C3F - 2bc05dd91af061b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Financial.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Financial.ViewController&gt;"
-                  moduleName = "Financial"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/MyProjects/MyFin/Financial/Financial/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "157">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -140,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
             endingLineNumber = "12"
-            landmarkName = "ExpenseViewModel"
-            landmarkType = "3">
+            landmarkName = "expenses"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

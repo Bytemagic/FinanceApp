@@ -16,6 +16,15 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let headerLabel = UILabel()
+          headerLabel.text = "Мои Траты"
+          headerLabel.textAlignment = .center
+          headerLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        headerLabel.textColor = .white
+          headerLabel.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60)
+
+          tableView.tableHeaderView = headerLabel
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

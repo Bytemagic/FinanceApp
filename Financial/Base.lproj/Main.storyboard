@@ -95,7 +95,10 @@
                                         <rect key="frame" x="0.0" y="172" width="280" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyq-WX-BrX">
-                                                <rect key="frame" x="30" y="2" width="220" height="44"/>
+                                                <rect key="frame" x="30" y="7" width="220" height="34.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="EU3-aI-XIm"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Добавить Расход ➕">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
@@ -106,8 +109,8 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Yyq-WX-BrX" secondAttribute="bottom" constant="2" id="9J5-Be-0wV"/>
-                                            <constraint firstItem="Yyq-WX-BrX" firstAttribute="top" secondItem="Evn-Vy-9Uz" secondAttribute="top" constant="2" id="C57-b6-ZRc"/>
+                                            <constraint firstItem="Yyq-WX-BrX" firstAttribute="centerY" secondItem="Evn-Vy-9Uz" secondAttribute="centerY" id="1vc-Mr-1y2"/>
+                                            <constraint firstItem="Yyq-WX-BrX" firstAttribute="centerX" secondItem="Evn-Vy-9Uz" secondAttribute="centerX" id="NOL-ho-GsC"/>
                                             <constraint firstAttribute="trailing" secondItem="Yyq-WX-BrX" secondAttribute="trailing" constant="30" id="dTs-gk-2s7"/>
                                             <constraint firstItem="Yyq-WX-BrX" firstAttribute="leading" secondItem="Evn-Vy-9Uz" secondAttribute="leading" constant="30" id="n9o-6R-WCE"/>
                                         </constraints>
@@ -147,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-382" y="-502"/>
+            <point key="canvasLocation" x="-383" y="-609"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eVp-1X-oLP">
@@ -165,7 +168,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp8-1S-4d1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1257" y="-502"/>
+            <point key="canvasLocation" x="-1977" y="-188"/>
         </scene>
         <!--History Table View Controller-->
         <scene sceneID="ji4-1H-M2Z">

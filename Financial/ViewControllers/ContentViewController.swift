@@ -28,6 +28,29 @@ class ContentViewController: UIViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setGradientBackground(view: view)
+    }
+    
+    
+    func setGradientBackground(view: UIView) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [
+            UIColor.systemBlue.cgColor,
+            UIColor.systemPurple.cgColor,
+            UIColor.systemRed.cgColor,
+            UIColor.systemYellow.cgColor
+        ]
+
+        // Направление: сверху вниз
+        gradient.startPoint = CGPoint(x: 0.1, y: 0.0)
+        gradient.endPoint   = CGPoint(x: 0.9, y: 1.0)
+
+        view.layer.insertSublayer(gradient, at: 0)
+    }
+    
     
     
     @IBAction func clickClose(_ sender: UIButton)

@@ -70,12 +70,6 @@ class MainPageViewController: UIViewController {
         startMoney = UserDefaults.standard.integer(forKey:"startMoney")
             everyDayMoney = UserDefaults.standard.integer(forKey:"everyDayMoney")
        
-        
-        
-       
-       
-        
-        
         headerLabel.textColor = .white
         dayRemainsLabel.textColor = .white
         headerLabel.text = "Мои Финансы"
@@ -94,10 +88,41 @@ class MainPageViewController: UIViewController {
         currrentDayUseMoney
             .addGestureRecognizer(tapGestureEvery)
         
+        
+        
+        
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.calculateDays()
+    }
+    
+  
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setGradientBackground(view: view)
+    }
+    
+    
+    func setGradientBackground(view: UIView) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [
+            UIColor.systemBlue.cgColor,
+            UIColor.systemPurple.cgColor,
+            UIColor.systemRed.cgColor
+        ]
+
+        // Направление: сверху вниз
+        gradient.startPoint = CGPoint(x: 0.1, y: 0.0)
+        gradient.endPoint   = CGPoint(x: 0.8, y: 1.0)
+
+        view.layer.insertSublayer(gradient, at: 0)
     }
     
     
@@ -226,6 +251,8 @@ class MainPageViewController: UIViewController {
         
     }
     
+    
+    
     @IBAction func addFound(_ sender: UIButton)
     {
         var alertController = UIAlertController(title: "Расход", message: "Введите расход", preferredStyle: .alert)
@@ -251,7 +278,7 @@ class MainPageViewController: UIViewController {
             
             let title = alertController?.textFields?[0].text ?? ""
             let amount = Int(alertController?.textFields?[1].text ?? "") ?? 0
-            self.viewModel.addExpense(descFound: title, moneyFound: amount)
+            self.viewModel.addExpense(dateFound: Date(),descFound: title, moneyFound: amount)
             self.calculateDays()
             
             

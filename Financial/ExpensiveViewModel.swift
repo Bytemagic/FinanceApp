@@ -18,14 +18,34 @@ class ExpenseViewModel {
 
     // Замыкание для оповещения view об обновлении
   
-    func addExpense(descFound: String, moneyFound: Int) {
-        let newExpense = MoneyModel(descFound: descFound, moneyFound: moneyFound)
+    func addExpense(dateFound: Date,descFound: String, moneyFound: Int) {
+        let newExpense = MoneyModel(dateFound: dateFound,descFound: descFound, moneyFound: moneyFound)
         expenses.append(newExpense)
      
     }
 
     func getExpenses() -> [MoneyModel] {
         return expenses
+    }
+    
+    func getSectionsCount() -> Int
+    {
+        var listOfDatas = [String]()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM" // Пример формата: 31 Декабря 2025
+        dateFormatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русский язык
+        
+     
+        
+        for exp in expenses
+        {
+            let formattedDate = dateFormatter.string(from:  exp.dateFound)
+            if (!listOfDatas.contains(formattedDate)) {listOfDatas.append(formattedDate)}
+        }
+        
+        return listOfDatas.count
+        
     }
     
     func getExpensesSumm() -> Int {

@@ -26,7 +26,34 @@ class HistoryTableViewController: UITableViewController {
         
         tableView.tableHeaderView = headerLabel
         
+        
+        let gradientView = UIView(frame: tableView.bounds)
+
+           let gradient = CAGradientLayer()
+           gradient.frame = gradientView.bounds
+           gradient.colors = [
+            UIColor.systemBlue.cgColor,
+            UIColor.systemPurple.cgColor,
+            UIColor.systemRed.cgColor,
+            UIColor.systemYellow.cgColor
+           ]
+           gradient.startPoint = CGPoint(x: 0.1, y: 0.0)
+           gradient.endPoint   = CGPoint(x: 0.9, y: 1.0)
+
+           gradientView.layer.insertSublayer(gradient, at: 0)
+             tableView.backgroundView = gradientView
+
+        tableView.backgroundColor = .white
+        
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let gradientLayer = tableView.backgroundView?.layer.sublayers?.first {
+             gradientLayer.frame = tableView.bounds
+         }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -35,7 +62,7 @@ class HistoryTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return viewModel.getSectionsCount()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,7 +80,15 @@ class HistoryTableViewController: UITableViewController {
         return cell
     }
     
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM" // Пример формата: 31 Декабря 2025
+        dateFormatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русский язык
+        
+        let formattedDate = dateFormatter.string(from:  Date())
+        return formattedDate
+        
+    }
     
     
     // Override to support editing the table view.

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sgw-IY-E8b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L2s-q6-BHe">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Financial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainPageViewController" customModule="Financial" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,12 +150,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="-609"/>
+            <point key="canvasLocation" x="-1303" y="-13"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="Epi-FG-xkK">
+            <objects>
+                <viewController id="L2s-q6-BHe" customClass="StartViewController" customModule="Financial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZmZ-GK-7U7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fzh-dM-Z2O"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5lB-oI-QS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1978" y="-1103"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="VPZ-DT-uDO">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="Wp7-8Y-np6" customClass="PageViewController" customModule="Financial" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v6I-fO-jm8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1303" y="-1103"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="DH4-O3-RTV">
+            <objects>
+                <viewController storyboardIdentifier="ContentViewController" id="84w-V6-5Ib" customClass="ContentViewController" customModule="Financial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lvo-na-Uml">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z6-xP-cPR">
+                                <rect key="frame" x="27" y="67" width="332" height="223"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="223" id="rX8-Ak-rcd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-K4-bim">
+                                <rect key="frame" x="27" y="333" width="332" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="IjN-X4-AlG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxg-eT-Nyv">
+                                <rect key="frame" x="69" y="548" width="248" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="1dH-1y-EwJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Закрыть"/>
+                                <connections>
+                                    <action selector="clickClose:" destination="84w-V6-5Ib" eventType="touchUpInside" id="ZgK-3F-4xe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6wg-hS-7Lq"/>
+                        <color key="backgroundColor" red="0.99965816736221313" green="0.30273926258087158" blue="0.0018460209248587489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6wg-hS-7Lq" firstAttribute="trailing" secondItem="6z6-xP-cPR" secondAttribute="trailing" constant="16" id="27p-HA-zEP"/>
+                            <constraint firstItem="6wg-hS-7Lq" firstAttribute="bottom" secondItem="Lxg-eT-Nyv" secondAttribute="bottom" constant="53" id="9Zj-LL-HEI"/>
+                            <constraint firstItem="Lxg-eT-Nyv" firstAttribute="top" secondItem="ygg-K4-bim" secondAttribute="bottom" constant="47" id="AhT-g9-933"/>
+                            <constraint firstItem="Lxg-eT-Nyv" firstAttribute="leading" secondItem="6wg-hS-7Lq" secondAttribute="leading" constant="69" id="Md7-L9-dCS"/>
+                            <constraint firstItem="ygg-K4-bim" firstAttribute="leading" secondItem="6wg-hS-7Lq" secondAttribute="leading" constant="27" id="Siz-D2-CHW"/>
+                            <constraint firstItem="6z6-xP-cPR" firstAttribute="leading" secondItem="6wg-hS-7Lq" secondAttribute="leading" constant="27" id="Spf-Do-AAq"/>
+                            <constraint firstItem="ygg-K4-bim" firstAttribute="top" secondItem="6z6-xP-cPR" secondAttribute="bottom" constant="43" id="Vdy-EM-qul"/>
+                            <constraint firstItem="6wg-hS-7Lq" firstAttribute="trailing" secondItem="ygg-K4-bim" secondAttribute="trailing" constant="16" id="ZG3-hh-tyN"/>
+                            <constraint firstItem="6wg-hS-7Lq" firstAttribute="bottom" secondItem="Lxg-eT-Nyv" secondAttribute="bottom" constant="53" id="g9n-Q9-cQM"/>
+                            <constraint firstItem="6wg-hS-7Lq" firstAttribute="trailing" secondItem="Lxg-eT-Nyv" secondAttribute="trailing" constant="58" id="o72-wS-aFf"/>
+                            <constraint firstItem="6wg-hS-7Lq" firstAttribute="bottom" secondItem="ygg-K4-bim" secondAttribute="bottom" constant="166" id="oF7-JU-q0o"/>
+                            <constraint firstItem="6z6-xP-cPR" firstAttribute="top" secondItem="6wg-hS-7Lq" secondAttribute="top" constant="47" id="yXA-RZ-g7j"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="Lxg-eT-Nyv" id="ln6-p3-7N1"/>
+                        <outlet property="emojiLabel" destination="ygg-K4-bim" id="LEC-xo-tLi"/>
+                        <outlet property="presentLabel" destination="6z6-xP-cPR" id="ai2-DN-zbx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPP-WS-zUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-495.19999999999999" y="-1103.2983508245877"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eVp-1X-oLP">
             <objects>
-                <tabBarController id="sgw-IY-E8b" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="sgw-IY-E8b" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WlF-BL-9vL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,7 +256,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp8-1S-4d1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1977" y="-188"/>
+            <point key="canvasLocation" x="-3177" y="188"/>
         </scene>
         <!--History Table View Controller-->
         <scene sceneID="ji4-1H-M2Z">
@@ -201,7 +289,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqC-8C-ETa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="188"/>
+            <point key="canvasLocation" x="-1303" y="782"/>
         </scene>
     </scenes>
     <resources>
@@ -217,6 +305,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainPageViewController: UIViewController {
     
     var viewModel: ExpenseViewModel!
     

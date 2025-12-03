@@ -10,6 +10,7 @@
 		044DA6AA2EDDE39F007090E7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6A92EDDE39F007090E7 /* StartViewController.swift */; };
 		044DA6AC2EDDE463007090E7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6AB2EDDE463007090E7 /* PageViewController.swift */; };
 		044DA6AE2EDED55E007090E7 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6AD2EDED55E007090E7 /* ContentViewController.swift */; };
+		045004D32EE084D0004CC81B /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045004D22EE084D0004CC81B /* UIView+Gradient.swift */; };
 		04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E22EDC53F70060CE0B /* AppDelegate.swift */; };
 		04C922E52EDC53F70060CE0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E42EDC53F70060CE0B /* SceneDelegate.swift */; };
 		04C922E72EDC53F70060CE0B /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E62EDC53F70060CE0B /* MainPageViewController.swift */; };
@@ -25,6 +26,7 @@
 		044DA6A92EDDE39F007090E7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		044DA6AB2EDDE463007090E7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		044DA6AD2EDED55E007090E7 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		045004D22EE084D0004CC81B /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		04C922DF2EDC53F70060CE0B /* Financial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C922E22EDC53F70060CE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C922E42EDC53F70060CE0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				04C922ED2EDC53F80060CE0B /* LaunchScreen.storyboard */,
 				04C922F02EDC53F80060CE0B /* Info.plist */,
 				04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */,
+				045004D22EE084D0004CC81B /* UIView+Gradient.swift */,
 			);
 			path = Financial;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */,
 				04E89C302EDD9FC800FF630E /* ExpensiveViewModel.swift in Sources */,
 				04C922E52EDC53F70060CE0B /* SceneDelegate.swift in Sources */,
+				045004D32EE084D0004CC81B /* UIView+Gradient.swift in Sources */,
 				044DA6AC2EDDE463007090E7 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

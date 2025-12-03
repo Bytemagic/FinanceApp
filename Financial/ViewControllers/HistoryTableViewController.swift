@@ -12,9 +12,6 @@ class HistoryTableViewController: UITableViewController {
     
     var viewModel: ExpenseViewModel!
     
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,10 +113,6 @@ class HistoryTableViewController: UITableViewController {
             let moneyExpence = MoneyModel(descFound: title, moneyFound: amount)
             self.viewModel.editExpense(forEdit : indexPath,money: moneyExpence)
             tableView.reloadData()
-          
-            
-            
-            
         }
         
         let alertClose = UIAlertAction(title: "Закрыть", style: .cancel)
@@ -130,10 +123,10 @@ class HistoryTableViewController: UITableViewController {
     }
     
     
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
+        if editingStyle == .delete
+        {
             viewModel.removeExpense(forDelete: indexPath)
             tableView.reloadData()
             

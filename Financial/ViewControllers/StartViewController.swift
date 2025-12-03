@@ -29,12 +29,7 @@ class StartViewController: UIViewController {
                     listVC.viewModel = viewModel
                 }
                 present(tabBarController,animated: true,completion: nil)
-                
-                
-                
             }
-            
-            
             return
         }
         if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController

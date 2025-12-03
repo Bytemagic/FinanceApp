@@ -15,13 +15,10 @@ class PageViewController: UIPageViewController {
      "Введи стартовую сумму денег и средние расходы за день",
      "Удачи тебе"
     ]
-    
     let emojiScreen =
     [
         "👋","🤑","💵","🤘"
     ]
-    
-    
     
     override func viewDidLoad()
     {
@@ -39,7 +36,6 @@ class PageViewController: UIPageViewController {
     {
         guard index >= 0 else { return nil}
         guard index < informationScreenData.count else {return nil}
-        
         guard let viewController = storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as? ContentViewController
         else {return nil}
                 
@@ -60,9 +56,7 @@ extension PageViewController : UIPageViewControllerDataSource
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var pageNumber = (viewController as! ContentViewController).currentPage
-        
         pageNumber -= 1
-        
         return createViewControllerAtIndex(pageNumber)
         
     }
@@ -70,9 +64,7 @@ extension PageViewController : UIPageViewControllerDataSource
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var pageNumber = (viewController as! ContentViewController).currentPage
-        
         pageNumber += 1
-        
         return createViewControllerAtIndex(pageNumber)
         
     }

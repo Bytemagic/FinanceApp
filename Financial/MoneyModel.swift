@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct MoneyModel : Codable
 {
     let descFound : String
     let moneyFound : Int
+  
     
     
 }

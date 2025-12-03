@@ -12,39 +12,31 @@ class MainPageViewController: UIViewController {
     var viewModel: ExpenseViewModel!
     
     @IBOutlet weak var headerLabel: UILabel!
-    
     @IBOutlet weak var startBalanceInfoLabel: UILabel!
-    
     @IBOutlet weak var currrentDayUseMoney: UILabel!
-    
     @IBOutlet weak var dayRemainsLabel: UILabel!
-    
     @IBOutlet weak var reactLabel: UILabel!
     
     var startMoney : Int = 1
     {
         didSet
         {
-            startBalanceInfoLabel.text = "Стартовые финансы: \(startMoney)р."
+            startBalanceInfoLabel.text = "Стартовые финансы: \(startMoney) р."
             calculateDays()
-            
         }
     }
     var everyDayMoney : Int = 1
     {
         didSet
         {
-            currrentDayUseMoney.text = "Среднее ежедневное: \(everyDayMoney)р."
+            currrentDayUseMoney.text = "Среднее ежедневное: \(everyDayMoney) р."
             calculateDays()
-            
-            
         }
     }
     
     var dayRemains : Int
     {
         return (startMoney-viewModel.getExpensesSumm())/everyDayMoney
-        
     }
     
     
@@ -56,28 +48,22 @@ class MainPageViewController: UIViewController {
         if UserDefaults.standard.object(forKey: "startMoney") == nil
         {
             UserDefaults.standard.setValue(200000, forKey: "startMoney")
-            
         }
        
         
         if  UserDefaults.standard.object(forKey: "everyDayMoney") == nil
         {
             UserDefaults.standard.setValue(4500, forKey: "everyDayMoney")
-            
         }
   
-       
         startMoney = UserDefaults.standard.integer(forKey:"startMoney")
-            everyDayMoney = UserDefaults.standard.integer(forKey:"everyDayMoney")
+        everyDayMoney = UserDefaults.standard.integer(forKey:"everyDayMoney")
        
         headerLabel.textColor = .white
         dayRemainsLabel.textColor = .white
         headerLabel.text = "Мои Финансы"
         
-        
         startBalanceInfoLabel.isUserInteractionEnabled = true
-        
-        
         currrentDayUseMoney.isUserInteractionEnabled = true
         
         
@@ -85,14 +71,7 @@ class MainPageViewController: UIViewController {
         startBalanceInfoLabel.addGestureRecognizer(tapGestureStart)
         
         let tapGestureEvery = UITapGestureRecognizer(target: self, action: #selector(labelTappedEvery))
-        currrentDayUseMoney
-            .addGestureRecognizer(tapGestureEvery)
-        
-        
-        
-        
-        
-        
+        currrentDayUseMoney.addGestureRecognizer(tapGestureEvery)
         
     }
     
@@ -105,26 +84,11 @@ class MainPageViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setGradientBackground(view: view)
+        view.setGradientBackground()
     }
     
     
-    func setGradientBackground(view: UIView) {
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [
-            UIColor.systemBlue.cgColor,
-            UIColor.systemPurple.cgColor,
-            UIColor.systemRed.cgColor
-        ]
-
-        // Направление: сверху вниз
-        gradient.startPoint = CGPoint(x: 0.1, y: 0.0)
-        gradient.endPoint   = CGPoint(x: 0.8, y: 1.0)
-
-        view.layer.insertSublayer(gradient, at: 0)
-    }
-    
+  
     
     private func calculateDays()
     {

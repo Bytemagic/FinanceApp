@@ -9,9 +9,15 @@ import Foundation
 
 struct MoneyModel : Codable
 {
-    let dateFound : Date
     let descFound : String
     let moneyFound : Int
     
     
 }
+struct ExpenceSections :Codable
+{
+    let date: String
+    var items : [MoneyModel]
+    
+}
+

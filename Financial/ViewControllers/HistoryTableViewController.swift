@@ -12,6 +12,7 @@ class HistoryTableViewController: UITableViewController {
     
     var viewModel: ExpenseViewModel!
     
+   
     
     
     override func viewDidLoad() {
@@ -67,27 +68,65 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewModel.getExpenses().count
+        return viewModel.getExpenses()[section].items.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let expence = viewModel.getExpenses()[indexPath.row]
-        cell.textLabel?.text = "\(expence.descFound) = \(expence.moneyFound)"
+        let expence = viewModel.getExpenses()[indexPath.section]
+        cell.textLabel?.text = "\(expence.items[indexPath.row].descFound) = \(expence.items[indexPath.row].moneyFound)"
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM" // Пример формата: 31 Декабря 2025
-        dateFormatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русский язык
+      
+        return viewModel.getExpenses()[section].date
         
-        let formattedDate = dateFormatter.string(from:  Date())
-        return formattedDate
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let expence = viewModel.getExpenses()[indexPath.section]
+        var alertController = UIAlertController(title: "Расход", message: "Введите расход", preferredStyle: .alert)
+        
+        alertController.addTextField
+        {
+            (textField) in
+            textField.placeholder = expence.items[indexPath.row].descFound
+         
+        }
+        alertController.addTextField
+        {
+            (textField) in
+            textField.placeholder = " \(expence.items[indexPath.row].moneyFound)"
+            textField.keyboardType = .numberPad
+         
+        }
+        let alertOk = UIAlertAction(title: "OK", style: .default)
+        {
+            [weak alertController] _ in
+            
+            var title = alertController?.textFields?[0].text ?? expence.items[indexPath.row].descFound
+            if title.count == 0 { title = expence.items[indexPath.row].descFound }
+         
+            let amount = Int(alertController?.textFields?[1].text ?? "") ?? expence.items[indexPath.row].moneyFound
+           
+            let moneyExpence = MoneyModel(descFound: title, moneyFound: amount)
+            self.viewModel.editExpense(forEdit : indexPath,money: moneyExpence)
+            tableView.reloadData()
+          
+            
+            
+            
+        }
+        
+        let alertClose = UIAlertAction(title: "Закрыть", style: .cancel)
+        alertController.addAction(alertOk)
+        alertController.addAction(alertClose)
+        
+        present(alertController,animated: true)
     }
     
     
@@ -95,7 +134,7 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            viewModel.removeExpense(at: indexPath.row)
+            viewModel.removeExpense(forDelete: indexPath)
             tableView.reloadData()
             
         }

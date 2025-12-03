@@ -278,7 +278,7 @@ class MainPageViewController: UIViewController {
             
             let title = alertController?.textFields?[0].text ?? ""
             let amount = Int(alertController?.textFields?[1].text ?? "") ?? 0
-            self.viewModel.addExpense(dateFound: Date(),descFound: title, moneyFound: amount)
+            self.viewModel.addExpense(descFound: title, moneyFound: amount)
             self.calculateDays()
             
             

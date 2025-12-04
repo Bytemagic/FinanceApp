@@ -37,14 +37,8 @@ class StartViewController: UIViewController {
             pageViewController.modalPresentationStyle = .fullScreen
             present(pageViewController,animated: true,completion: nil)
             
-            
-            
         }
         
     }
-    
-  
-    
-    
     
 }

@@ -17,6 +17,7 @@
 		04C922EA2EDC53F70060CE0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C922E82EDC53F70060CE0B /* Main.storyboard */; };
 		04C922EC2EDC53F80060CE0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C922EB2EDC53F80060CE0B /* Assets.xcassets */; };
 		04C922EF2EDC53F80060CE0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C922ED2EDC53F80060CE0B /* LaunchScreen.storyboard */; };
+		04CDE19B2EE18F39003C8707 /* UIViewController+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CDE19A2EE18F39003C8707 /* UIViewController+AlertController.swift */; };
 		04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2B2EDD912200FF630E /* HistoryTableViewController.swift */; };
 		04E89C2E2EDD9F0400FF630E /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */; };
 		04E89C302EDD9FC800FF630E /* ExpensiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */; };
@@ -35,6 +36,7 @@
 		04C922EB2EDC53F80060CE0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04C922EE2EDC53F80060CE0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04C922F02EDC53F80060CE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CDE19A2EE18F39003C8707 /* UIViewController+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertController.swift"; sourceTree = "<group>"; };
 		04E89C2B2EDD912200FF630E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensiveViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +65,24 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		045004D42EE0CA1E004CC81B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */,
+				04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		045004D52EE0CA2F004CC81B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				045004D22EE084D0004CC81B /* UIView+Gradient.swift */,
+				04CDE19A2EE18F39003C8707 /* UIViewController+AlertController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		04C922D62EDC53F70060CE0B = {
 			isa = PBXGroup;
 			children = (
@@ -82,16 +102,15 @@
 		04C922E12EDC53F70060CE0B /* Financial */ = {
 			isa = PBXGroup;
 			children = (
-				04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */,
 				04C922E22EDC53F70060CE0B /* AppDelegate.swift */,
 				04C922E42EDC53F70060CE0B /* SceneDelegate.swift */,
+				045004D42EE0CA1E004CC81B /* Models */,
+				045004D52EE0CA2F004CC81B /* Extensions */,
 				044DA6A82EDDDE51007090E7 /* ViewControllers */,
 				04C922E82EDC53F70060CE0B /* Main.storyboard */,
-				04C922EB2EDC53F80060CE0B /* Assets.xcassets */,
 				04C922ED2EDC53F80060CE0B /* LaunchScreen.storyboard */,
+				04C922EB2EDC53F80060CE0B /* Assets.xcassets */,
 				04C922F02EDC53F80060CE0B /* Info.plist */,
-				04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */,
-				045004D22EE084D0004CC81B /* UIView+Gradient.swift */,
 			);
 			path = Financial;
 			sourceTree = "<group>";
@@ -168,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E89C2E2EDD9F0400FF630E /* MoneyModel.swift in Sources */,
+				04CDE19B2EE18F39003C8707 /* UIViewController+AlertController.swift in Sources */,
 				044DA6AA2EDDE39F007090E7 /* StartViewController.swift in Sources */,
 				04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */,
 				04C922E72EDC53F70060CE0B /* MainPageViewController.swift in Sources */,

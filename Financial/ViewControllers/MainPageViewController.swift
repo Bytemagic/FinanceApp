@@ -7,6 +7,12 @@
 
 import UIKit
 
+struct AlertTextFieldModel {
+    let placeholder: String
+    let keyboard: UIKeyboardType
+    let isSecure: Bool
+}
+
 class MainPageViewController: UIViewController {
     
     var viewModel: ExpenseViewModel!
@@ -49,16 +55,16 @@ class MainPageViewController: UIViewController {
         {
             UserDefaults.standard.setValue(200000, forKey: "startMoney")
         }
-       
+        
         
         if  UserDefaults.standard.object(forKey: "everyDayMoney") == nil
         {
             UserDefaults.standard.setValue(4500, forKey: "everyDayMoney")
         }
-  
+        
         startMoney = UserDefaults.standard.integer(forKey:"startMoney")
         everyDayMoney = UserDefaults.standard.integer(forKey:"everyDayMoney")
-       
+        
         headerLabel.textColor = .white
         dayRemainsLabel.textColor = .white
         headerLabel.text = "Мои Финансы"
@@ -79,7 +85,7 @@ class MainPageViewController: UIViewController {
         self.calculateDays()
     }
     
-  
+    
     
     
     override func viewDidLayoutSubviews() {
@@ -88,7 +94,7 @@ class MainPageViewController: UIViewController {
     }
     
     
-  
+    
     
     private func calculateDays()
     {
@@ -100,8 +106,6 @@ class MainPageViewController: UIViewController {
         dateFormatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русский язык
         
         let formattedDate = dateFormatter.string(from: targetDate)
-        
-        dayRemainsLabel.text = "Хватит примерно на \(dayRemains) дней. До \(formattedDate)"
         
         
         if dayRemains>10
@@ -120,140 +124,83 @@ class MainPageViewController: UIViewController {
     
     @objc private func labelTappedStart(_ sender : UITapGestureRecognizer)
     {
-        let alertController = UIAlertController(title: "Стартовые финансы", message: "Введите доступные средства", preferredStyle: .alert)
-        alertController.addTextField
-        {
-            (textField) in
-            
-            textField.placeholder = "\(self.startMoney)"
-            textField.keyboardType = .numberPad
-        }
         
-        let alertOk = UIAlertAction(title: "OK", style: .default)
-        {
-            [weak alertController] _ in
+        super.alertPresenterAddFound(title: "Стартовые финансы",
+                               message: "Введите доступные средства",
+                               textFields:
+                                [
+                                    AlertTextFieldModel(placeholder: String(self.startMoney), keyboard: .numberPad, isSecure: false),
+                                  
+                                ]
+                               ,cancelTitle: "Закрыть",
+                               okTitle: "OK"
+        )
+        { [weak self] values in
+            guard let self = self else { return }
             
-            guard let textFields = alertController?.textFields,
-                  let inputTextField = textFields.first,
-                  let inputText = inputTextField.text else {
-                // Обработка ошибки, если поле не найдено или пустое
-                print("Ошибка: Текстовое поле не найдено или недоступно.")
-                return
-            }
-            
-            // 5. Обработка введенной строки
-            
-            if inputText.isEmpty {
-                print("Введена пустая строка. Пожалуйста, введите текст.")
-                // Можно снова показать алерт или выдать ошибку
-                return
-                
-            }
-            
-            if let money = Int(inputText)
+            let title = values[0] ?? ""
+            if let money = Int(title)
             {
                 self.startMoney = money
                 
             }
-       }
-        
-        let alertClose = UIAlertAction(title: "Закрыть", style: .cancel)
-        alertController.addAction(alertOk)
-        alertController.addAction(alertClose)
-        
-        present(alertController,animated: true)
-        
-        
+           
+        }
     }
     @objc private func labelTappedEvery(_ sender : UITapGestureRecognizer)
     {
-        let alertController = UIAlertController(title: "Eжедневные средние", message: "Введите сумму средних трат", preferredStyle: .alert)
-        alertController.addTextField
-        {
-            (textField) in
-            
-            textField.placeholder = "\(self.everyDayMoney)"
-            textField.keyboardType = .numberPad
-        }
         
-        let alertOk = UIAlertAction(title: "OK", style: .default)
-        {
-            [weak alertController] _ in
+        
+        super.alertPresenterAddFound(title: "Eжедневные средние",
+                               message: "Введите сумму средних трат",
+                               textFields:
+                                [
+                                    AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
+                                  
+                                ]
+                               ,cancelTitle: "Закрыть",
+                               okTitle: "OK"
+        )
+        { [weak self] values in
+            guard let self = self else { return }
             
-            guard let textFields = alertController?.textFields,
-                  let inputTextField = textFields.first,
-                  let inputText = inputTextField.text else {
-                // Обработка ошибки, если поле не найдено или пустое
-                print("Ошибка: Текстовое поле не найдено или недоступно.")
-                return
-            }
-            
-            // 5. Обработка введенной строки
-            
-            if inputText.isEmpty {
-                print("Введена пустая строка. Пожалуйста, введите текст.")
-                // Можно снова показать алерт или выдать ошибку
-                return
-                
-            }
-            
-            if let money = Int(inputText)
+            let title = values[0] ?? ""
+            if let money = Int(title)
             {
                 self.everyDayMoney = money
                 
             }
-            
-            
+           
         }
-        
-        let alertClose = UIAlertAction(title: "Закрыть", style: .cancel)
-        alertController.addAction(alertOk)
-        alertController.addAction(alertClose)
-        
-        present(alertController,animated: true)
-        
-        
     }
     
     
     
     @IBAction func addFound(_ sender: UIButton)
     {
-        var alertController = UIAlertController(title: "Расход", message: "Введите расход", preferredStyle: .alert)
-        
-        alertController.addTextField
-        {
-            (textField) in
+        super.alertPresenterAddFound(title: "Новый расход",
+                               message: "Введите сумму",
+                               textFields:
+                                [
+                                    AlertTextFieldModel(placeholder: "Трата", keyboard: .default, isSecure: false),
+                                    AlertTextFieldModel(placeholder: "0", keyboard: .numberPad, isSecure: false)
+                                ]
+                               ,cancelTitle: "Закрыть",
+                               okTitle: "OK"
+        )
+        { [weak self] values in
+            guard let self = self else { return }
             
-            textField.placeholder = "Трата"
-         
-        }
-        alertController.addTextField
-        {
-            (textField) in
+            let title = values[0] ?? ""
+            let amount = Int(values[1] ?? "") ?? 0
             
-            textField.placeholder = "0"
-            textField.keyboardType = .numberPad
-         
-        }
-        let alertOk = UIAlertAction(title: "OK", style: .default)
-        {
-            [weak alertController] _ in
+            self.viewModel.addExpense(
+                descFound: title,
+                moneyFound: amount
+            )
             
-            let title = alertController?.textFields?[0].text ?? ""
-            let amount = Int(alertController?.textFields?[1].text ?? "") ?? 0
-            self.viewModel.addExpense(descFound: title, moneyFound: amount)
             self.calculateDays()
-            
-            
-            
         }
-        
-        let alertClose = UIAlertAction(title: "Закрыть", style: .cancel)
-        alertController.addAction(alertOk)
-        alertController.addAction(alertClose)
-        
-        present(alertController,animated: true)
         
         
     }
@@ -261,5 +208,10 @@ class MainPageViewController: UIViewController {
     
     
     
+    
+    
+    
 }
+
+
 

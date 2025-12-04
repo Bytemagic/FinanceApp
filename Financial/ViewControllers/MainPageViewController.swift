@@ -73,11 +73,11 @@ class MainPageViewController: UIViewController {
         currrentDayUseMoney.isUserInteractionEnabled = true
         
         
-        let tapGestureStart = UITapGestureRecognizer(target: self, action: #selector(labelTappedStart))
+        let tapGestureStart = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         startBalanceInfoLabel.addGestureRecognizer(tapGestureStart)
-        
-        let tapGestureEvery = UITapGestureRecognizer(target: self, action: #selector(labelTappedEvery))
+        let tapGestureEvery = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         currrentDayUseMoney.addGestureRecognizer(tapGestureEvery)
+      
         
     }
     
@@ -85,7 +85,62 @@ class MainPageViewController: UIViewController {
         self.calculateDays()
     }
     
-    
+    @objc private func labelTapped(_ sender: UITapGestureRecognizer) {
+        // sender.view — это объект, на который нажали
+        if let label = sender.view as? UILabel {
+           
+            
+            if label == startBalanceInfoLabel
+            {
+                super.alertPresenterAddFound(title: "Стартовые финансы",
+                                       message: "Введите доступные средства",
+                                       textFields:
+                                        [
+                                            AlertTextFieldModel(placeholder: String(self.startMoney), keyboard: .numberPad, isSecure: false),
+                                          
+                                        ]
+                                       ,cancelTitle: "Закрыть",
+                                       okTitle: "OK"
+                )
+                { [weak self] values in
+                    guard let self = self else { return }
+                    
+                    let title = values[0] ?? ""
+                    if let money = Int(title)
+                    {
+                        self.startMoney = money
+                        
+                    }
+                   
+                }
+               
+            } else if label == currrentDayUseMoney
+            {
+                super.alertPresenterAddFound(title: "Eжедневные средние",
+                                       message: "Введите сумму средних трат",
+                                       textFields:
+                                        [
+                                            AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
+                                          
+                                        ]
+                                       ,cancelTitle: "Закрыть",
+                                       okTitle: "OK"
+                )
+                { [weak self] values in
+                    guard let self = self else { return }
+                    
+                    let title = values[0] ?? ""
+                    if let money = Int(title)
+                    {
+                        self.everyDayMoney = money
+                        
+                    }
+                   
+                }
+               
+            }
+        }
+    }
     
     
     override func viewDidLayoutSubviews() {
@@ -122,60 +177,7 @@ class MainPageViewController: UIViewController {
         
     }
     
-    @objc private func labelTappedStart(_ sender : UITapGestureRecognizer)
-    {
-        
-        super.alertPresenterAddFound(title: "Стартовые финансы",
-                               message: "Введите доступные средства",
-                               textFields:
-                                [
-                                    AlertTextFieldModel(placeholder: String(self.startMoney), keyboard: .numberPad, isSecure: false),
-                                  
-                                ]
-                               ,cancelTitle: "Закрыть",
-                               okTitle: "OK"
-        )
-        { [weak self] values in
-            guard let self = self else { return }
-            
-            let title = values[0] ?? ""
-            if let money = Int(title)
-            {
-                self.startMoney = money
-                
-            }
-           
-        }
-    }
-    @objc private func labelTappedEvery(_ sender : UITapGestureRecognizer)
-    {
-        
-        
-        super.alertPresenterAddFound(title: "Eжедневные средние",
-                               message: "Введите сумму средних трат",
-                               textFields:
-                                [
-                                    AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
-                                  
-                                ]
-                               ,cancelTitle: "Закрыть",
-                               okTitle: "OK"
-        )
-        { [weak self] values in
-            guard let self = self else { return }
-            
-            let title = values[0] ?? ""
-            if let money = Int(title)
-            {
-                self.everyDayMoney = money
-                
-            }
-           
-        }
-    }
-    
-    
-    
+
     @IBAction func addFound(_ sender: UIButton)
     {
         super.alertPresenterAddFound(title: "Новый расход",

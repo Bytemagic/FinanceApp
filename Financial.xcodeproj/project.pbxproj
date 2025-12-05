@@ -11,6 +11,7 @@
 		044DA6AC2EDDE463007090E7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6AB2EDDE463007090E7 /* PageViewController.swift */; };
 		044DA6AE2EDED55E007090E7 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6AD2EDED55E007090E7 /* ContentViewController.swift */; };
 		045004D32EE084D0004CC81B /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045004D22EE084D0004CC81B /* UIView+Gradient.swift */; };
+		049D47FB2EE2C60E00C753CF /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D47FA2EE2C60E00C753CF /* UserDefaultsWrapper.swift */; };
 		04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E22EDC53F70060CE0B /* AppDelegate.swift */; };
 		04C922E52EDC53F70060CE0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E42EDC53F70060CE0B /* SceneDelegate.swift */; };
 		04C922E72EDC53F70060CE0B /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E62EDC53F70060CE0B /* MainPageViewController.swift */; };
@@ -28,6 +29,7 @@
 		044DA6AB2EDDE463007090E7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		044DA6AD2EDED55E007090E7 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		045004D22EE084D0004CC81B /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		049D47FA2EE2C60E00C753CF /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		04C922DF2EDC53F70060CE0B /* Financial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C922E22EDC53F70060CE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C922E42EDC53F70060CE0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		049D47F92EE2C5E300C753CF /* Statics */ = {
+			isa = PBXGroup;
+			children = (
+				049D47FA2EE2C60E00C753CF /* UserDefaultsWrapper.swift */,
+			);
+			path = Statics;
+			sourceTree = "<group>";
+		};
 		04C922D62EDC53F70060CE0B = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 				04C922E22EDC53F70060CE0B /* AppDelegate.swift */,
 				04C922E42EDC53F70060CE0B /* SceneDelegate.swift */,
 				045004D42EE0CA1E004CC81B /* Models */,
+				049D47F92EE2C5E300C753CF /* Statics */,
 				045004D52EE0CA2F004CC81B /* Extensions */,
 				044DA6A82EDDDE51007090E7 /* ViewControllers */,
 				04C922E82EDC53F70060CE0B /* Main.storyboard */,
@@ -190,6 +201,7 @@
 				04CDE19B2EE18F39003C8707 /* UIViewController+AlertController.swift in Sources */,
 				044DA6AA2EDDE39F007090E7 /* StartViewController.swift in Sources */,
 				04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */,
+				049D47FB2EE2C60E00C753CF /* UserDefaultsWrapper.swift in Sources */,
 				04C922E72EDC53F70060CE0B /* MainPageViewController.swift in Sources */,
 				044DA6AE2EDED55E007090E7 /* ContentViewController.swift in Sources */,
 				04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */,

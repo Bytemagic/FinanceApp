@@ -45,25 +45,16 @@ class MainPageViewController: UIViewController {
         return (startMoney-viewModel.getExpensesSumm())/everyDayMoney
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.object(forKey: "startMoney") == nil
-        {
-            UserDefaults.standard.setValue(200000, forKey: "startMoney")
-        }
-        
-        
-        if  UserDefaults.standard.object(forKey: "everyDayMoney") == nil
-        {
-            UserDefaults.standard.setValue(4500, forKey: "everyDayMoney")
-        }
-        
-        startMoney = UserDefaults.standard.integer(forKey:"startMoney")
-        everyDayMoney = UserDefaults.standard.integer(forKey:"everyDayMoney")
+       
+     
+        UserDefaultsWrapper.instance.checkKey(forKey: .startMoney, defaultValue: 200000)
+        UserDefaultsWrapper.instance.checkKey(forKey: .everyDayMoney, defaultValue: 4500)
+    
+        startMoney = UserDefaultsWrapper.instance.getInt(.startMoney)
+        everyDayMoney = UserDefaultsWrapper.instance.getInt(.everyDayMoney)
         
         headerLabel.textColor = .white
         dayRemainsLabel.textColor = .white
@@ -78,11 +69,15 @@ class MainPageViewController: UIViewController {
         let tapGestureEvery = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         currrentDayUseMoney.addGestureRecognizer(tapGestureEvery)
       
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.calculateDays()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.setGradientBackground()
     }
     
     @objc private func labelTapped(_ sender: UITapGestureRecognizer) {
@@ -135,19 +130,10 @@ class MainPageViewController: UIViewController {
                         self.everyDayMoney = money
                         
                     }
-                   
                 }
-               
             }
         }
     }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        view.setGradientBackground()
-    }
-    
     
     
     
@@ -177,7 +163,6 @@ class MainPageViewController: UIViewController {
         
     }
     
-
     @IBAction func addFound(_ sender: UIButton)
     {
         super.alertPresenterAddFound(title: "Новый расход",
@@ -204,15 +189,8 @@ class MainPageViewController: UIViewController {
             self.calculateDays()
         }
         
-        
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
 
 

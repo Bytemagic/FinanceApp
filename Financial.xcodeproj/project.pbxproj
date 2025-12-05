@@ -12,6 +12,9 @@
 		044DA6AE2EDED55E007090E7 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6AD2EDED55E007090E7 /* ContentViewController.swift */; };
 		045004D32EE084D0004CC81B /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045004D22EE084D0004CC81B /* UIView+Gradient.swift */; };
 		049D47FB2EE2C60E00C753CF /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D47FA2EE2C60E00C753CF /* UserDefaultsWrapper.swift */; };
+		049D47FD2EE305E800C753CF /* PiggyBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D47FC2EE305E800C753CF /* PiggyBankViewController.swift */; };
+		049D47FF2EE30FC000C753CF /* PiggyBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D47FE2EE30FC000C753CF /* PiggyBankViewModel.swift */; };
+		049D48012EE30FD200C753CF /* PiggyBankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D48002EE30FD200C753CF /* PiggyBankModel.swift */; };
 		04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E22EDC53F70060CE0B /* AppDelegate.swift */; };
 		04C922E52EDC53F70060CE0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E42EDC53F70060CE0B /* SceneDelegate.swift */; };
 		04C922E72EDC53F70060CE0B /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E62EDC53F70060CE0B /* MainPageViewController.swift */; };
@@ -30,6 +33,9 @@
 		044DA6AD2EDED55E007090E7 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		045004D22EE084D0004CC81B /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		049D47FA2EE2C60E00C753CF /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		049D47FC2EE305E800C753CF /* PiggyBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankViewController.swift; sourceTree = "<group>"; };
+		049D47FE2EE30FC000C753CF /* PiggyBankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankViewModel.swift; sourceTree = "<group>"; };
+		049D48002EE30FD200C753CF /* PiggyBankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankModel.swift; sourceTree = "<group>"; };
 		04C922DF2EDC53F70060CE0B /* Financial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C922E22EDC53F70060CE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C922E42EDC53F70060CE0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,7 @@
 				044DA6A92EDDE39F007090E7 /* StartViewController.swift */,
 				044DA6AB2EDDE463007090E7 /* PageViewController.swift */,
 				044DA6AD2EDED55E007090E7 /* ContentViewController.swift */,
+				049D47FC2EE305E800C753CF /* PiggyBankViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -72,6 +79,8 @@
 			children = (
 				04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */,
 				04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */,
+				049D47FE2EE30FC000C753CF /* PiggyBankViewModel.swift */,
+				049D48002EE30FD200C753CF /* PiggyBankModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +211,9 @@
 				044DA6AA2EDDE39F007090E7 /* StartViewController.swift in Sources */,
 				04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */,
 				049D47FB2EE2C60E00C753CF /* UserDefaultsWrapper.swift in Sources */,
+				049D47FF2EE30FC000C753CF /* PiggyBankViewModel.swift in Sources */,
+				049D47FD2EE305E800C753CF /* PiggyBankViewController.swift in Sources */,
+				049D48012EE30FD200C753CF /* PiggyBankModel.swift in Sources */,
 				04C922E72EDC53F70060CE0B /* MainPageViewController.swift in Sources */,
 				044DA6AE2EDED55E007090E7 /* ContentViewController.swift in Sources */,
 				04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */,

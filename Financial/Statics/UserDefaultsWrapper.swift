@@ -50,6 +50,7 @@ enum UserKeys : String
 {
     case startMoney
     case everyDayMoney
+    case piggyBank
     
 }
 

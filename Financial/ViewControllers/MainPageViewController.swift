@@ -27,7 +27,7 @@ class MainPageViewController: UIViewController {
     {
         didSet
         {
-            startBalanceInfoLabel.text = "Стартовые финансы: \(startMoney) р."
+            startBalanceInfoLabel.text = "Стартовые финансы: \(startMoney) ₽"
             calculateDays()
         }
     }
@@ -35,7 +35,7 @@ class MainPageViewController: UIViewController {
     {
         didSet
         {
-            currrentDayUseMoney.text = "Среднее ежедневное: \(everyDayMoney) р."
+            currrentDayUseMoney.text = "Среднее ежедневное: \(everyDayMoney) ₽"
             calculateDays()
         }
     }
@@ -43,6 +43,10 @@ class MainPageViewController: UIViewController {
     var dayRemains : Int
     {
         return (startMoney-viewModel.getExpensesSumm())/everyDayMoney
+    }
+    var moneyRemains : Int
+    {
+        return startMoney-viewModel.getExpensesSumm()
     }
     
     override func viewDidLoad() {
@@ -152,12 +156,12 @@ class MainPageViewController: UIViewController {
         if dayRemains>10
         {
             dayRemainsLabel.text = "Хватит примерно на \(dayRemains) дней. До \(formattedDate)"
-            reactLabel.text = "😇"
+            reactLabel.text = "На счету \(moneyRemains) ₽  😇"
         }
         else
         {
             dayRemainsLabel.text = "Средств почти нет"
-            reactLabel.text = "🥶"
+            reactLabel.text = "На счету \(moneyRemains) ₽  🥶"
         }
         
         

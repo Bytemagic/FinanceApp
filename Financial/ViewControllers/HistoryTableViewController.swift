@@ -48,7 +48,7 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let expence = viewModel.getExpenses()[indexPath.section]
-        cell.textLabel?.text = "\(expence.items[indexPath.row].descFound) = \(expence.items[indexPath.row].moneyFound)"
+        cell.textLabel?.text = "\(expence.items[indexPath.row].descFound) = \(expence.items[indexPath.row].moneyFound) ₽"
         
         return cell
     }

@@ -27,10 +27,17 @@ class PiggyBankViewModel
     func addPiggy(descFound: String, moneyFound: Int) {
         
         let newExpense = PiggyBankModel(targetName: descFound, targetImage: "", targetSumm: moneyFound, targetMoney: 0)
-       piggyBank.insert(newExpense, at: 0)
+        piggyBank.append(newExpense)
         
         
         
+        
+        
+    }
+    
+    func changeMoney(index : Int, money : Int)
+    {
+        piggyBank[index].targetMoney += money
         
         
     }

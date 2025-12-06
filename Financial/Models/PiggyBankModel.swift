@@ -12,6 +12,6 @@ struct PiggyBankModel : Codable
     let targetName : String
     let targetImage : String
     let targetSumm : Int
-    let targetMoney : Int
+    var targetMoney : Int
     
 }

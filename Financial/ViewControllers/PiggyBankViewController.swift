@@ -8,7 +8,7 @@
 import UIKit
 
 class PiggyBankViewController: UIViewController {
-
+    
     var piggyModel : PiggyBankViewModel!
     
     var piggy : [PiggyBankModel]!
@@ -31,38 +31,78 @@ class PiggyBankViewController: UIViewController {
         piggyModel = PiggyBankViewModel()
         piggyModel.loadExpenses()
         
+        
         titleLabel.textColor = .white
         targetNameLabel.textColor = .white
         targetSummLabel.textColor = .white
         
-        titleLabel.isHidden = true
-        segmentTargets.isHidden = true
-        targetProgress.isHidden = true
-        targetImage.isHidden = true
-        targetSummLabel.isHidden = true
-        targetNameLabel.isHidden = true
-        buttonAddMoney.isHidden = true
-       
+        viewActivator(acivated: true)
+        checkButtons()
+        if (piggyModel.getpiggyBanksCount()>0) {
+            loadDataToView(index: 0)
+          
+           
+        }
+        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.setGradientBackground()
     }
     
+    func createSegments()
+    {
+        segmentTargets.removeAllSegments()
+        for seg in piggyModel.getpiggyBanks()
+        {
+            segmentTargets.insertSegment(withTitle: seg.targetName,at: segmentTargets.numberOfSegments, animated: true)
+        
+            
+        }
+        
+      
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    func checkButtons()
+    {
+        addNewTargetButton.isHidden = piggyModel.getpiggyBanksCount() > 2
+        createSegments()
+    }
+    
     func loadDataToView(index : Int)
     {
         piggy = piggyModel.getpiggyBanks()
         if piggy == nil {return}
-        titleLabel.isHidden = false
-        segmentTargets.isHidden = false
-        targetProgress.isHidden = false
-        targetImage.isHidden = false
-        targetSummLabel.isHidden = false
-        targetNameLabel.isHidden = false
-        buttonAddMoney.isHidden = false
+        viewActivator(acivated: false)
         targetNameLabel.text = piggy[index].targetName
         targetSummLabel.text = "Накопил \(piggy[index].targetMoney) из \((piggy[index].targetSumm))"
-        targetProgress.setProgress(Float((piggy[index].targetMoney/piggy[index].targetSumm)/100), animated: true)
+        
+        
+        let progress = Float(piggy[index].targetMoney) / Float(piggy[index].targetSumm)
+        targetProgress.setProgress(progress, animated: false)
+       
+        segmentTargets.selectedSegmentIndex = index
+        
+        
+        
+    }
+    
+    func viewActivator(acivated : Bool)
+    {
+        titleLabel.isHidden = acivated
+        segmentTargets.isHidden = acivated
+        targetProgress.isHidden = acivated
+        targetImage.isHidden = acivated
+        targetSummLabel.isHidden = acivated
+        targetNameLabel.isHidden = acivated
+        buttonAddMoney.isHidden = acivated
         
         
         
@@ -71,14 +111,14 @@ class PiggyBankViewController: UIViewController {
     @IBAction func clickNewTargetButton(_ sender: UIButton)
     {
         super.alertPresenterAddFound(title: "Новая цель",
-                               message: "Введите данные",
-                               textFields:
-                                [
-                                    AlertTextFieldModel(placeholder: "Цель", keyboard: .default, isSecure: false),
-                                    AlertTextFieldModel(placeholder: "", keyboard: .numberPad, isSecure: false)
-                                ]
-                               ,cancelTitle: "Закрыть",
-                               okTitle: "OK"
+                                     message: "Введите данные",
+                                     textFields:
+                                        [
+                                            AlertTextFieldModel(placeholder: "Цель", keyboard: .default, isSecure: false),
+                                            AlertTextFieldModel(placeholder: "", keyboard: .numberPad, isSecure: false)
+                                        ]
+                                     ,cancelTitle: "Закрыть",
+                                     okTitle: "OK"
         )
         { [weak self] values in
             guard let self = self else { return }
@@ -89,17 +129,38 @@ class PiggyBankViewController: UIViewController {
             self.piggyModel.addPiggy(
                 descFound: title,
                 moneyFound: amount)
-            loadDataToView(index: 0)
-           
+            loadDataToView(index: self.piggyModel.getpiggyBanksCount()-1)
+            checkButtons()
         }
         
         
     }
     
-    
-    @IBAction func addMoneyToTarget(_ sender: UIButton) {
-        
+    @IBAction func changeSegment(_ sender: UISegmentedControl) {
+        loadDataToView(index: sender.selectedSegmentIndex)
     }
     
-
+    @IBAction func addMoneyToTarget(_ sender: UIButton)
+    {
+        super.alertPresenterAddFound(title: "Добавить денег",
+                                     message: "Сколько закинуть?",
+                                     textFields:
+                                        [
+                                            AlertTextFieldModel(placeholder: "0", keyboard: .numberPad, isSecure: false)
+                                        ]
+                                     ,cancelTitle: "Закрыть",
+                                     okTitle: "OK"
+        )
+        { [weak self] values in
+            guard let self = self else { return }
+            
+            let money = Int(values[0] ?? "") ?? 0
+            self.piggyModel.changeMoney(index: segmentTargets.selectedSegmentIndex,money : money)
+            loadDataToView(index: segmentTargets.selectedSegmentIndex)
+            
+           
+        }
+    }
+    
+    
 }

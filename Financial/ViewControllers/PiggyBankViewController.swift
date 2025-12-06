@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class PiggyBankViewController: UIViewController {
     
@@ -33,16 +34,20 @@ class PiggyBankViewController: UIViewController {
         
         
         titleLabel.textColor = .white
-        targetNameLabel.textColor = .white
+       
         targetSummLabel.textColor = .white
         
         viewActivator(acivated: true)
         checkButtons()
         if (piggyModel.getpiggyBanksCount()>0) {
             loadDataToView(index: 0)
-          
+            targetImage.isUserInteractionEnabled = true
            
         }
+        
+      
+        let tapGestureStart = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        targetImage.addGestureRecognizer(tapGestureStart)
         
     }
     override func viewDidLayoutSubviews() {
@@ -50,24 +55,26 @@ class PiggyBankViewController: UIViewController {
         view.setGradientBackground()
     }
     
+    @objc private func imageTapped(_ sender: UITapGestureRecognizer) {
+        
+            var config = PHPickerConfiguration()
+           config.selectionLimit = 1
+           config.filter = .images
+
+           let picker = PHPickerViewController(configuration: config)
+           picker.delegate = self
+           present(picker, animated: true)
+    }
+    
+    
+    
     func createSegments()
     {
         segmentTargets.removeAllSegments()
         for seg in piggyModel.getpiggyBanks()
         {
             segmentTargets.insertSegment(withTitle: seg.targetName,at: segmentTargets.numberOfSegments, animated: true)
-        
-            
         }
-        
-      
-        
-        
-        
-        
-        
-        
-        
     }
     
     func checkButtons()
@@ -81,7 +88,6 @@ class PiggyBankViewController: UIViewController {
         piggy = piggyModel.getpiggyBanks()
         if piggy == nil {return}
         viewActivator(acivated: false)
-        targetNameLabel.text = piggy[index].targetName
         targetSummLabel.text = "Накопил \(piggy[index].targetMoney) из \((piggy[index].targetSumm))"
         
         
@@ -101,7 +107,7 @@ class PiggyBankViewController: UIViewController {
         targetProgress.isHidden = acivated
         targetImage.isHidden = acivated
         targetSummLabel.isHidden = acivated
-        targetNameLabel.isHidden = acivated
+    
         buttonAddMoney.isHidden = acivated
         
         
@@ -163,4 +169,21 @@ class PiggyBankViewController: UIViewController {
     }
     
     
+    
+    
+}
+extension PiggyBankViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+
+        guard let provider = results.first?.itemProvider else { return }
+
+        if provider.canLoadObject(ofClass: UIImage.self) {
+            provider.loadObject(ofClass: UIImage.self) { image, _ in
+                DispatchQueue.main.async {
+                    self.targetImage.image = image as? UIImage
+                }
+            }
+        }
+    }
 }

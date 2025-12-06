@@ -300,14 +300,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="u9y-Tr-P6z">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9y-Tr-P6z">
                                 <rect key="frame" x="16" y="20" width="341" height="589"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GS-5i-lde">
-                                        <rect key="frame" x="0.0" y="0.0" width="341" height="71"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="84"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqf-9B-TlO">
-                                                <rect key="frame" x="184" y="0.0" width="157" height="71"/>
+                                                <rect key="frame" x="184" y="0.0" width="157" height="84"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Добавить цель"/>
                                                 <connections>
@@ -323,10 +323,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKY-Gi-0Za">
-                                        <rect key="frame" x="0.0" y="80" width="341" height="57.5"/>
+                                        <rect key="frame" x="0.0" y="86" width="341" height="84.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мои копилки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVG-HN-TW0">
-                                                <rect key="frame" x="8" y="8" width="325" height="41.5"/>
+                                                <rect key="frame" x="8" y="8" width="325" height="68.5"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="38"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -340,7 +340,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJJ-dx-Rya">
-                                        <rect key="frame" x="0.0" y="146.5" width="341" height="70"/>
+                                        <rect key="frame" x="0.0" y="172" width="341" height="70"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-Yv-29K">
                                                 <rect key="frame" x="23" y="20" width="294" height="31"/>
@@ -365,28 +365,8 @@
                                             <constraint firstItem="cbp-Yv-29K" firstAttribute="leading" secondItem="BJJ-dx-Rya" secondAttribute="leading" constant="23" id="eGx-c6-xB3"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I60-UF-4qt">
-                                        <rect key="frame" x="0.0" y="225.5" width="341" height="50"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Названия цели" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rC-aa-rgu">
-                                                <rect key="frame" x="45" y="11" width="251" height="29"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="251" id="Js1-T4-9AW"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="0rC-aa-rgu" firstAttribute="leading" secondItem="I60-UF-4qt" secondAttribute="leading" constant="45" id="ATs-qo-KfV"/>
-                                            <constraint firstAttribute="bottom" secondItem="0rC-aa-rgu" secondAttribute="bottom" constant="10" id="HrA-1C-H4y"/>
-                                            <constraint firstItem="0rC-aa-rgu" firstAttribute="top" secondItem="I60-UF-4qt" secondAttribute="top" constant="11" id="Ug4-2G-md2"/>
-                                            <constraint firstAttribute="trailing" secondItem="0rC-aa-rgu" secondAttribute="trailing" constant="45" id="za1-Bg-y0w"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1c2-ki-eYK">
-                                        <rect key="frame" x="0.0" y="284.5" width="341" height="122"/>
+                                        <rect key="frame" x="0.0" y="244" width="341" height="122"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-aF-4Gr">
                                                 <rect key="frame" x="8" y="4" width="325" height="114"/>
@@ -403,10 +383,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avJ-dg-rbn">
-                                        <rect key="frame" x="0.0" y="415.5" width="341" height="49"/>
+                                        <rect key="frame" x="0.0" y="367.5" width="341" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E3-KO-iV5">
-                                                <rect key="frame" x="8" y="7" width="325" height="32"/>
+                                                <rect key="frame" x="8" y="7" width="325" height="67"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -420,7 +400,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6E-52-3sF">
-                                        <rect key="frame" x="0.0" y="473.5" width="341" height="50"/>
+                                        <rect key="frame" x="0.0" y="453.5" width="341" height="50"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Isl-FY-Pwl">
                                                 <rect key="frame" x="18" y="10" width="304" height="4"/>
@@ -436,10 +416,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zze-vz-dhG">
-                                        <rect key="frame" x="0.0" y="532.5" width="341" height="56.5"/>
+                                        <rect key="frame" x="0.0" y="505" width="341" height="84"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmV-eh-57b">
-                                                <rect key="frame" x="20" y="5" width="301" height="43.5"/>
+                                                <rect key="frame" x="20" y="5" width="301" height="71"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="301" id="M7b-im-wcN"/>
                                                 </constraints>
@@ -475,7 +455,6 @@
                         <outlet property="buttonAddMoney" destination="YmV-eh-57b" id="cqm-Nc-hQE"/>
                         <outlet property="segmentTargets" destination="cbp-Yv-29K" id="8wX-k4-aUY"/>
                         <outlet property="targetImage" destination="bOI-aF-4Gr" id="nNX-39-HVx"/>
-                        <outlet property="targetNameLabel" destination="0rC-aa-rgu" id="FhD-Eq-H54"/>
                         <outlet property="targetProgress" destination="Isl-FY-Pwl" id="mkq-MH-AJ8"/>
                         <outlet property="targetSummLabel" destination="8E3-KO-iV5" id="Hnh-sB-vF7"/>
                         <outlet property="titleLabel" destination="sVG-HN-TW0" id="FA3-ld-Snx"/>

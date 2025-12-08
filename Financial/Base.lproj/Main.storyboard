@@ -323,7 +323,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKY-Gi-0Za">
-                                        <rect key="frame" x="0.0" y="86" width="341" height="84.5"/>
+                                        <rect key="frame" x="0.0" y="87" width="341" height="84.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мои копилки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVG-HN-TW0">
                                                 <rect key="frame" x="8" y="8" width="325" height="68.5"/>
@@ -340,7 +340,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJJ-dx-Rya">
-                                        <rect key="frame" x="0.0" y="172" width="341" height="70"/>
+                                        <rect key="frame" x="0.0" y="174" width="341" height="70"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-Yv-29K">
                                                 <rect key="frame" x="23" y="20" width="294" height="31"/>
@@ -366,10 +366,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1c2-ki-eYK">
-                                        <rect key="frame" x="0.0" y="244" width="341" height="122"/>
+                                        <rect key="frame" x="0.0" y="247" width="341" height="122"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-aF-4Gr">
-                                                <rect key="frame" x="8" y="4" width="325" height="114"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tray" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-aF-4Gr">
+                                                <rect key="frame" x="8" y="5.5" width="325" height="110.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="114" id="90r-5P-K9u"/>
                                                 </constraints>
@@ -383,10 +383,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avJ-dg-rbn">
-                                        <rect key="frame" x="0.0" y="367.5" width="341" height="84"/>
+                                        <rect key="frame" x="0.0" y="371.5" width="341" height="78"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E3-KO-iV5">
-                                                <rect key="frame" x="8" y="7" width="325" height="67"/>
+                                                <rect key="frame" x="8" y="7" width="325" height="61"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -400,7 +400,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6E-52-3sF">
-                                        <rect key="frame" x="0.0" y="453.5" width="341" height="50"/>
+                                        <rect key="frame" x="0.0" y="452.5" width="341" height="50"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Isl-FY-Pwl">
                                                 <rect key="frame" x="18" y="10" width="304" height="4"/>
@@ -467,6 +467,7 @@
     </scenes>
     <resources>
         <image name="latch.2.case" catalog="system" width="128" height="100"/>
+        <image name="tray" catalog="system" width="128" height="88"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

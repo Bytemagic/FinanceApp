@@ -26,7 +26,13 @@ class PiggyBankViewModel
     
     func addPiggy(descFound: String, moneyFound: Int) {
         
-        let newExpense = PiggyBankModel(targetName: descFound, targetImage: "", targetSumm: moneyFound, targetMoney: 0)
+        var nameForImage = ""
+        if let name =    descFound.applyingTransform(.toLatin, reverse: false)
+        {
+            nameForImage = name
+        }
+        
+        let newExpense = PiggyBankModel(targetName: descFound, targetImage: "Image\(nameForImage)", targetSumm: moneyFound, targetMoney: 0)
         piggyBank.append(newExpense)
         
         
@@ -58,7 +64,7 @@ class PiggyBankViewModel
     }
     
     func removeExpense(forDelete index: IndexPath) {
-      
+        
         
     }
     

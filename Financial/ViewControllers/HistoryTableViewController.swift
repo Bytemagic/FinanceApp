@@ -48,7 +48,7 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let expence = viewModel.getExpenses()[indexPath.section]
-        cell.textLabel?.text = "\(expence.items[indexPath.row].descFound) = \(expence.items[indexPath.row].moneyFound) ₽"
+        cell.textLabel?.text = "\(expence.items[indexPath.row].descFound) = \(expence.items[indexPath.row].moneyFound) ₽     \(expence.items[indexPath.row].expenceCategory)"
         
         return cell
     }
@@ -60,23 +60,35 @@ class HistoryTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let expence = viewModel.getExpenses()[indexPath.section]
+//        let expence = viewModel.getExpenses()[indexPath.section]
+//        
+//        super.alertPresenterAddFound(title: "Расход", message: "Введите расход", textFields:
+//                                        [
+//                                            AlertTextFieldModel(placeholder: expence.items[indexPath.row].descFound, keyboard: .default, isSecure: false),
+//                                            AlertTextFieldModel(placeholder: String(expence.items[indexPath.row].moneyFound), keyboard: .numberPad, isSecure: false)
+//                                        ])
+//        {
+//            [weak self] values in
+//            guard let self = self else { return }
+//            var title = values[0] ?? expence.items[indexPath.row].descFound
+//            if title.count == 0 { title = expence.items[indexPath.row].descFound }
+//            let amount = Int(values[1] ?? "") ?? expence.items[indexPath.row].moneyFound
+//            let moneyExpence = MoneyModel(descFound: title, moneyFound: amount)
+//            self.viewModel.editExpense(forEdit : indexPath,money: moneyExpence)
+//            tableView.reloadData()
+//        }
         
-        super.alertPresenterAddFound(title: "Расход", message: "Введите расход", textFields:
-                                        [
-                                            AlertTextFieldModel(placeholder: expence.items[indexPath.row].descFound, keyboard: .default, isSecure: false),
-                                            AlertTextFieldModel(placeholder: String(expence.items[indexPath.row].moneyFound), keyboard: .numberPad, isSecure: false)
-                                        ])
+        
+        if let editExpenceView = storyboard?.instantiateViewController(withIdentifier: "EditExpenceViewController") as? EditExpenceViewController
         {
-            [weak self] values in
-            guard let self = self else { return }
-            var title = values[0] ?? expence.items[indexPath.row].descFound
-            if title.count == 0 { title = expence.items[indexPath.row].descFound }
-            let amount = Int(values[1] ?? "") ?? expence.items[indexPath.row].moneyFound
-            let moneyExpence = MoneyModel(descFound: title, moneyFound: amount)
-            self.viewModel.editExpense(forEdit : indexPath,money: moneyExpence)
-            tableView.reloadData()
+            editExpenceView.modalPresentationStyle = .fullScreen
+            editExpenceView.viewModel = viewModel
+            editExpenceView.choosedIndex = indexPath
+            present(editExpenceView,animated: true)
         }
+        
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

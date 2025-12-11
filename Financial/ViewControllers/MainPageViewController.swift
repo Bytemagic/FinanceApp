@@ -7,11 +7,6 @@
 
 import UIKit
 
-struct AlertTextFieldModel {
-    let placeholder: String
-    let keyboard: UIKeyboardType
-    let isSecure: Bool
-}
 
 class MainPageViewController: UIViewController {
     
@@ -52,11 +47,9 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-     
         UserDefaultsWrapper.instance.checkKey(forKey: .startMoney, defaultValue: 200000)
         UserDefaultsWrapper.instance.checkKey(forKey: .everyDayMoney, defaultValue: 4500)
-    
+        
         startMoney = UserDefaultsWrapper.instance.getInt(.startMoney)
         everyDayMoney = UserDefaultsWrapper.instance.getInt(.everyDayMoney)
         
@@ -72,7 +65,7 @@ class MainPageViewController: UIViewController {
         startBalanceInfoLabel.addGestureRecognizer(tapGestureStart)
         let tapGestureEvery = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
         currrentDayUseMoney.addGestureRecognizer(tapGestureEvery)
-      
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,19 +80,19 @@ class MainPageViewController: UIViewController {
     @objc private func labelTapped(_ sender: UITapGestureRecognizer) {
         // sender.view — это объект, на который нажали
         if let label = sender.view as? UILabel {
-           
+            
             
             if label == startBalanceInfoLabel
             {
                 super.alertPresenterAddFound(title: "Стартовые финансы",
-                                       message: "Введите доступные средства",
-                                       textFields:
-                                        [
-                                            AlertTextFieldModel(placeholder: String(self.startMoney), keyboard: .numberPad, isSecure: false),
-                                          
-                                        ]
-                                       ,cancelTitle: "Закрыть",
-                                       okTitle: "OK"
+                                             message: "Введите доступные средства",
+                                             textFields:
+                                                [
+                                                    AlertTextFieldModel(placeholder: String(self.startMoney), keyboard: .numberPad, isSecure: false),
+                                                    
+                                                ]
+                                             ,cancelTitle: "Закрыть",
+                                             okTitle: "OK"
                 )
                 { [weak self] values in
                     guard let self = self else { return }
@@ -110,20 +103,20 @@ class MainPageViewController: UIViewController {
                         self.startMoney = money
                         
                     }
-                   
+                    
                 }
-               
+                
             } else if label == currrentDayUseMoney
             {
                 super.alertPresenterAddFound(title: "Eжедневные средние",
-                                       message: "Введите сумму средних трат",
-                                       textFields:
-                                        [
-                                            AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
-                                          
-                                        ]
-                                       ,cancelTitle: "Закрыть",
-                                       okTitle: "OK"
+                                             message: "Введите сумму средних трат",
+                                             textFields:
+                                                [
+                                                    AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
+                                                    
+                                                ]
+                                             ,cancelTitle: "Закрыть",
+                                             okTitle: "OK"
                 )
                 { [weak self] values in
                     guard let self = self else { return }
@@ -169,32 +162,20 @@ class MainPageViewController: UIViewController {
     
     @IBAction func addFound(_ sender: UIButton)
     {
-        super.alertPresenterAddFound(title: "Новый расход",
-                               message: "Введите сумму",
-                               textFields:
-                                [
-                                    AlertTextFieldModel(placeholder: "Трата", keyboard: .default, isSecure: false),
-                                    AlertTextFieldModel(placeholder: "0", keyboard: .numberPad, isSecure: false)
-                                ]
-                               ,cancelTitle: "Закрыть",
-                               okTitle: "OK"
-        )
-        { [weak self] values in
-            guard let self = self else { return }
+        if let addExpence = storyboard?.instantiateViewController(withIdentifier: "AddPurchaseViewController") as? CreateNewExpenceViewController
+        {
+            addExpence.modalPresentationStyle = .fullScreen
+            addExpence.viewModel = viewModel
+            present(addExpence,animated: true,completion: nil)
             
-            let title = values[0] ?? ""
-            let amount = Int(values[1] ?? "") ?? 0
-            
-            self.viewModel.addExpense(
-                descFound: title,
-                moneyFound: amount
-            )
-            
-            self.calculateDays()
         }
         
+        
+        
+        
+        
     }
-
+    
 }
 
 

@@ -15,6 +15,7 @@
 		049D47FD2EE305E800C753CF /* PiggyBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D47FC2EE305E800C753CF /* PiggyBankViewController.swift */; };
 		049D47FF2EE30FC000C753CF /* PiggyBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D47FE2EE30FC000C753CF /* PiggyBankViewModel.swift */; };
 		049D48012EE30FD200C753CF /* PiggyBankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D48002EE30FD200C753CF /* PiggyBankModel.swift */; };
+		04AA2F4E2EE737D10016CF36 /* CreateNewExpenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA2F4D2EE737D10016CF36 /* CreateNewExpenceViewController.swift */; };
 		04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E22EDC53F70060CE0B /* AppDelegate.swift */; };
 		04C922E52EDC53F70060CE0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E42EDC53F70060CE0B /* SceneDelegate.swift */; };
 		04C922E72EDC53F70060CE0B /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C922E62EDC53F70060CE0B /* MainPageViewController.swift */; };
@@ -22,6 +23,7 @@
 		04C922EC2EDC53F80060CE0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C922EB2EDC53F80060CE0B /* Assets.xcassets */; };
 		04C922EF2EDC53F80060CE0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C922ED2EDC53F80060CE0B /* LaunchScreen.storyboard */; };
 		04CDE19B2EE18F39003C8707 /* UIViewController+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CDE19A2EE18F39003C8707 /* UIViewController+AlertController.swift */; };
+		04E0E1C12EEAB4D10067E9AD /* EditExpenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0E1C02EEAB4D10067E9AD /* EditExpenceViewController.swift */; };
 		04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2B2EDD912200FF630E /* HistoryTableViewController.swift */; };
 		04E89C2E2EDD9F0400FF630E /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */; };
 		04E89C302EDD9FC800FF630E /* ExpensiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */; };
@@ -36,6 +38,7 @@
 		049D47FC2EE305E800C753CF /* PiggyBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankViewController.swift; sourceTree = "<group>"; };
 		049D47FE2EE30FC000C753CF /* PiggyBankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankViewModel.swift; sourceTree = "<group>"; };
 		049D48002EE30FD200C753CF /* PiggyBankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankModel.swift; sourceTree = "<group>"; };
+		04AA2F4D2EE737D10016CF36 /* CreateNewExpenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewExpenceViewController.swift; sourceTree = "<group>"; };
 		04C922DF2EDC53F70060CE0B /* Financial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C922E22EDC53F70060CE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C922E42EDC53F70060CE0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		04C922EE2EDC53F80060CE0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04C922F02EDC53F80060CE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CDE19A2EE18F39003C8707 /* UIViewController+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertController.swift"; sourceTree = "<group>"; };
+		04E0E1C02EEAB4D10067E9AD /* EditExpenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenceViewController.swift; sourceTree = "<group>"; };
 		04E89C2B2EDD912200FF630E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensiveViewModel.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				044DA6AB2EDDE463007090E7 /* PageViewController.swift */,
 				044DA6AD2EDED55E007090E7 /* ContentViewController.swift */,
 				049D47FC2EE305E800C753CF /* PiggyBankViewController.swift */,
+				04AA2F4D2EE737D10016CF36 /* CreateNewExpenceViewController.swift */,
+				04E0E1C02EEAB4D10067E9AD /* EditExpenceViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 				04CDE19B2EE18F39003C8707 /* UIViewController+AlertController.swift in Sources */,
 				044DA6AA2EDDE39F007090E7 /* StartViewController.swift in Sources */,
 				04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */,
+				04AA2F4E2EE737D10016CF36 /* CreateNewExpenceViewController.swift in Sources */,
 				049D47FB2EE2C60E00C753CF /* UserDefaultsWrapper.swift in Sources */,
 				049D47FF2EE30FC000C753CF /* PiggyBankViewModel.swift in Sources */,
 				049D47FD2EE305E800C753CF /* PiggyBankViewController.swift in Sources */,
@@ -220,6 +227,7 @@
 				04E89C302EDD9FC800FF630E /* ExpensiveViewModel.swift in Sources */,
 				04C922E52EDC53F70060CE0B /* SceneDelegate.swift in Sources */,
 				045004D32EE084D0004CC81B /* UIView+Gradient.swift in Sources */,
+				04E0E1C12EEAB4D10067E9AD /* EditExpenceViewController.swift in Sources */,
 				044DA6AC2EDDE463007090E7 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

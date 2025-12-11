@@ -7,6 +7,15 @@
 
 import Foundation
 import UIKit
+
+
+struct AlertTextFieldModel {
+    let placeholder: String
+    let keyboard: UIKeyboardType
+    let isSecure: Bool
+}
+
+
 extension UIViewController
 {
     func alertPresenterAddFound(title: String,
@@ -21,6 +30,7 @@ extension UIViewController
         for textField in textFields {
             alertTextField(alertController: alertController, text: textField.placeholder,keyboardType: textField.keyboard)
         }
+        
         alertCancel(title: cancelTitle, alertController: alertController)
         
         alertOK(title: okTitle,alertController: alertController) { values in
@@ -58,6 +68,18 @@ extension UIViewController
         let alertClose = UIAlertAction(title: title, style: .cancel)
         alertController.addAction(alertClose)
     }
+    
+    func hideKeyboardWhenTappedAround() {
+          let tap = UITapGestureRecognizer(target: self,
+                                           action: #selector(dismissKeyboard))
+          tap.cancelsTouchesInView = false
+          view.addGestureRecognizer(tap)
+      }
+
+      @objc private func dismissKeyboard() {
+          view.endEditing(true)
+      }
+   
     
     
     

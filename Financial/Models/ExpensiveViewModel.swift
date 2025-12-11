@@ -18,9 +18,9 @@ class ExpenseViewModel {
     
     // Замыкание для оповещения view об обновлении
     
-    func addExpense(descFound: String, moneyFound: Int) {
+    func addExpense(descFound: String, moneyFound: Int,category: ExpenceType) {
         
-        let newExpense = MoneyModel(descFound: descFound, moneyFound: moneyFound)
+        let newExpense = MoneyModel(descFound: descFound, moneyFound: moneyFound,expenceCategory: category)
         
         
         let dateFormatter = DateFormatter()

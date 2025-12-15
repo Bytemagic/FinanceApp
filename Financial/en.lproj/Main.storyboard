@@ -141,6 +141,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="latch.2.case" catalog="system" systemItem="featured" id="Y4M-CR-mVN"/>
                     <connections>
+                        <outlet property="addExpenceButton" destination="Yyq-WX-BrX" id="VNw-D7-ZMi"/>
                         <outlet property="currrentDayUseMoney" destination="xqt-do-X5Z" id="wbO-Zk-NnO"/>
                         <outlet property="dayRemainsLabel" destination="V3e-XI-6Y8" id="iqY-T4-ThT"/>
                         <outlet property="headerLabel" destination="CVT-zU-Rh6" id="DzQ-Re-VtG"/>
@@ -415,7 +416,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqf-9B-TlO">
                                                 <rect key="frame" x="184" y="0.0" width="157" height="84"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Добавить цель"/>
                                                 <connections>
                                                     <action selector="clickNewTargetButton:" destination="ki4-Zf-npW" eventType="touchUpInside" id="arO-A1-WQp"/>
                                                 </connections>
@@ -557,7 +557,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="7is-Mf-H8F"/>
                     <connections>
-                        <outlet property="addNewTargetButton" destination="oqf-9B-TlO" id="h38-0S-u21"/>
+                        <outlet property="addNewTargetButton" destination="oqf-9B-TlO" id="hre-wp-pQg"/>
                         <outlet property="buttonAddMoney" destination="YmV-eh-57b" id="cqm-Nc-hQE"/>
                         <outlet property="segmentTargets" destination="cbp-Yv-29K" id="8wX-k4-aUY"/>
                         <outlet property="targetImage" destination="bOI-aF-4Gr" id="nNX-39-HVx"/>

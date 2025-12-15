@@ -10,11 +10,11 @@ import UIKit
 class PageViewController: UIPageViewController {
     
     let informationScreenData =
-    ["Здравствуй!",
-     "С помощью приложения ты узнаешь на сколько хватит денег",
-     "Введи стартовую сумму денег и средние расходы за день",
-     "Удачи тебе"
-    ]
+    [String(localized: "HelloKey1"),
+     String(localized: "HelloKey2"),
+     String(localized: "HelloKey3"),
+     String(localized: "HelloKey4")]
+    
     let emojiScreen =
     [
         "👋","🤑","💵","🤘"
@@ -38,18 +38,19 @@ class PageViewController: UIPageViewController {
         guard index < informationScreenData.count else {return nil}
         guard let viewController = storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as? ContentViewController
         else {return nil}
-                
+        
         viewController.emojiText = emojiScreen[index]
         viewController.presentText = informationScreenData[index]
         viewController.currentPage = index
         viewController.numberOfPages = informationScreenData.count
-     
+        
         return viewController
     }
     
     
     
 }
+
 extension PageViewController : UIPageViewControllerDataSource
 {
     func pageViewController(_ pageViewController: UIPageViewController,

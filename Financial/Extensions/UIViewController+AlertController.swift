@@ -25,15 +25,20 @@ extension UIViewController
                                 okTitle: String = "OK",
                                 onOK: @escaping ([String?]) -> Void)
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let titleLoc = NSLocalizedString(title, comment: "")
+        let messageLoc = NSLocalizedString(message, comment: "")
+        let cancelLoc = NSLocalizedString(cancelTitle, comment: "")
+        let okLoc = NSLocalizedString(okTitle, comment: "")
+        
+        let alertController = UIAlertController(title: titleLoc, message: messageLoc, preferredStyle: .alert)
         
         for textField in textFields {
             alertTextField(alertController: alertController, text: textField.placeholder,keyboardType: textField.keyboard)
         }
         
-        alertCancel(title: cancelTitle, alertController: alertController)
+        alertCancel(title: cancelLoc, alertController: alertController)
         
-        alertOK(title: okTitle,alertController: alertController) { values in
+        alertOK(title: okLoc ,alertController: alertController) { values in
             onOK(values)   // 👈 просто прокидываем наружу
         }
         present(alertController,animated: true)

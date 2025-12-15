@@ -20,6 +20,7 @@ class ContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        closeButton.setTitle(String(localized: "CloseAlert"), for: .normal)  
         presentLabel.text = presentText
         emojiLabel.text = emojiText
         closeButton.isHidden = currentPage != numberOfPages-1

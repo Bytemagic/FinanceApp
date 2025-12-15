@@ -17,12 +17,12 @@ class PiggyBankViewController: UIViewController {
     @IBOutlet weak var addNewTargetButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var targetNameLabel: UILabel!
+   
     @IBOutlet weak var segmentTargets: UISegmentedControl!
     
     @IBOutlet weak var targetProgress: UIProgressView!
     @IBOutlet weak var targetImage: UIImageView!
-    @IBOutlet weak var clickAddNewTargeet: UIButton!
+    
     @IBOutlet weak var targetSummLabel: UILabel!
     
     @IBOutlet weak var buttonAddMoney: UIButton!
@@ -35,6 +35,8 @@ class PiggyBankViewController: UIViewController {
         targetSummLabel.textColor = .white
         viewActivator(acivated: true)
         checkButtons()
+        
+        addNewTargetButton.setTitle(String(localized: "AddNewTargetButton"),for: .normal)
         
         if (piggyModel.getpiggyBanksCount()>0) {
             loadDataToView(index: 0)
@@ -62,7 +64,7 @@ class PiggyBankViewController: UIViewController {
         
         
     }
-    
+  
     func createSegments()
     {
         segmentTargets.removeAllSegments()
@@ -132,8 +134,8 @@ class PiggyBankViewController: UIViewController {
                                             AlertTextFieldModel(placeholder: "Цель", keyboard: .default, isSecure: false),
                                             AlertTextFieldModel(placeholder: "", keyboard: .numberPad, isSecure: false)
                                         ]
-                                     ,cancelTitle: "Закрыть",
-                                     okTitle: "OK"
+                                     ,cancelTitle: "CloseAlert",
+                                     okTitle: "OkAlert"
         )
         { [weak self] values in
             guard let self = self else { return }
@@ -164,8 +166,8 @@ class PiggyBankViewController: UIViewController {
                                         [
                                             AlertTextFieldModel(placeholder: "0", keyboard: .numberPad, isSecure: false)
                                         ]
-                                     ,cancelTitle: "Закрыть",
-                                     okTitle: "OK"
+                                     ,cancelTitle: "CloseAlert",
+                                     okTitle: "OkAlert"
         )
         { [weak self] values in
             guard let self = self else { return }

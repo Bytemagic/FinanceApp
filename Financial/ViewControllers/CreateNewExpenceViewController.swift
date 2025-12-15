@@ -27,6 +27,10 @@ class CreateNewExpenceViewController: UIViewController {
         pickerView.dataSource = self
         hideKeyboardWhenTappedAround()
         
+        
+        
+        
+        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

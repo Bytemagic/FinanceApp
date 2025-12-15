@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040CC1842EF00D08007AF1C6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 040CC1832EF00D08007AF1C6 /* Localizable.xcstrings */; };
 		044DA6AA2EDDE39F007090E7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6A92EDDE39F007090E7 /* StartViewController.swift */; };
 		044DA6AC2EDDE463007090E7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6AB2EDDE463007090E7 /* PageViewController.swift */; };
 		044DA6AE2EDED55E007090E7 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DA6AD2EDED55E007090E7 /* ContentViewController.swift */; };
@@ -30,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040CC1832EF00D08007AF1C6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = ViewControllers/Localizable.xcstrings; sourceTree = "<group>"; };
+		040CC1852EF01061007AF1C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		040CC1862EF01061007AF1C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		044DA6A92EDDE39F007090E7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		044DA6AB2EDDE463007090E7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		044DA6AD2EDED55E007090E7 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -43,9 +47,7 @@
 		04C922E22EDC53F70060CE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C922E42EDC53F70060CE0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04C922E62EDC53F70060CE0B /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		04C922E92EDC53F70060CE0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04C922EB2EDC53F80060CE0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04C922EE2EDC53F80060CE0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04C922F02EDC53F80060CE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CDE19A2EE18F39003C8707 /* UIViewController+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertController.swift"; sourceTree = "<group>"; };
 		04E0E1C02EEAB4D10067E9AD /* EditExpenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenceViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				04C922ED2EDC53F80060CE0B /* LaunchScreen.storyboard */,
 				04C922EB2EDC53F80060CE0B /* Assets.xcassets */,
 				04C922F02EDC53F80060CE0B /* Info.plist */,
+				040CC1832EF00D08007AF1C6 /* Localizable.xcstrings */,
 			);
 			path = Financial;
 			sourceTree = "<group>";
@@ -169,7 +172,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					04C922DE2EDC53F70060CE0B = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -182,7 +185,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 04C922D62EDC53F70060CE0B;
 			productRefGroup = 04C922E02EDC53F70060CE0B /* Products */;
@@ -202,6 +205,7 @@
 				04C922EF2EDC53F80060CE0B /* LaunchScreen.storyboard in Resources */,
 				04C922EC2EDC53F80060CE0B /* Assets.xcassets in Resources */,
 				04C922EA2EDC53F70060CE0B /* Main.storyboard in Resources */,
+				040CC1842EF00D08007AF1C6 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +242,7 @@
 		04C922E82EDC53F70060CE0B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				04C922E92EDC53F70060CE0B /* Base */,
+				040CC1852EF01061007AF1C6 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -246,7 +250,7 @@
 		04C922ED2EDC53F80060CE0B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				04C922EE2EDC53F80060CE0B /* Base */,
+				040CC1862EF01061007AF1C6 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -258,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -310,6 +315,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -318,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -363,6 +370,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

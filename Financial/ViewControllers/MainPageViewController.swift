@@ -18,11 +18,16 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var dayRemainsLabel: UILabel!
     @IBOutlet weak var reactLabel: UILabel!
     
+    @IBOutlet weak var addExpenceButton: UIButton!
+    
     var startMoney : Int = 1
     {
         didSet
         {
-            startBalanceInfoLabel.text = "Стартовые финансы: \(startMoney) ₽"
+          
+            
+            startBalanceInfoLabel.text = String(format: String(localized: "StartFin"),"\(startMoney)")
+            
             calculateDays()
         }
     }
@@ -30,7 +35,10 @@ class MainPageViewController: UIViewController {
     {
         didSet
         {
-            currrentDayUseMoney.text = "Среднее ежедневное: \(everyDayMoney) ₽"
+         
+            
+            currrentDayUseMoney.text = String(format: String(localized: "EveryDayMiddle"),"\(everyDayMoney)")
+            
             calculateDays()
         }
     }
@@ -55,7 +63,9 @@ class MainPageViewController: UIViewController {
         
         headerLabel.textColor = .white
         dayRemainsLabel.textColor = .white
-        headerLabel.text = "Мои Финансы"
+        
+        addExpenceButton.setTitle(String(localized: "AddExpenceButton"), for: .normal)
+        headerLabel.text = String(localized: "MyFinanceLabel")
         
         startBalanceInfoLabel.isUserInteractionEnabled = true
         currrentDayUseMoney.isUserInteractionEnabled = true
@@ -84,15 +94,15 @@ class MainPageViewController: UIViewController {
             
             if label == startBalanceInfoLabel
             {
-                super.alertPresenterAddFound(title: "Стартовые финансы",
-                                             message: "Введите доступные средства",
+                super.alertPresenterAddFound(title: "StartFinAlert",
+                                             message: "InputStartMoneyAlert",
                                              textFields:
                                                 [
                                                     AlertTextFieldModel(placeholder: String(self.startMoney), keyboard: .numberPad, isSecure: false),
                                                     
                                                 ]
-                                             ,cancelTitle: "Закрыть",
-                                             okTitle: "OK"
+                                             ,cancelTitle: "CloseAlert",
+                                             okTitle: "OkAlert"
                 )
                 { [weak self] values in
                     guard let self = self else { return }
@@ -108,15 +118,15 @@ class MainPageViewController: UIViewController {
                 
             } else if label == currrentDayUseMoney
             {
-                super.alertPresenterAddFound(title: "Eжедневные средние",
-                                             message: "Введите сумму средних трат",
+                super.alertPresenterAddFound(title: "EveryDayAlert",
+                                             message: "InputEveryDayAlert",
                                              textFields:
                                                 [
                                                     AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
                                                     
                                                 ]
-                                             ,cancelTitle: "Закрыть",
-                                             okTitle: "OK"
+                                             ,cancelTitle: "CloseAlert",
+                                             okTitle: "OkAlert"
                 )
                 { [weak self] values in
                     guard let self = self else { return }
@@ -148,13 +158,14 @@ class MainPageViewController: UIViewController {
         
         if dayRemains>10
         {
-            dayRemainsLabel.text = "Хватит примерно на \(dayRemains) дней. До \(formattedDate)"
-            reactLabel.text = "На счету \(moneyRemains) ₽  😇"
+            dayRemainsLabel.text = String(format: String(localized:"MoneyDayRemains"), "\(dayRemains)","\(formattedDate)")
+            reactLabel.text = String(format: String(localized :"MoneyOnDeposit"), "\(moneyRemains)")
+         
         }
         else
         {
-            dayRemainsLabel.text = "Средств почти нет"
-            reactLabel.text = "На счету \(moneyRemains) ₽  🥶"
+            dayRemainsLabel.text = String(localized: "NoMoney")
+            reactLabel.text = String(format: "MoneyOnDepositBad", "\(moneyRemains)")
         }
         
         

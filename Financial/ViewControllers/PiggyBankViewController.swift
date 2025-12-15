@@ -36,7 +36,13 @@ class PiggyBankViewController: UIViewController {
         viewActivator(acivated: true)
         checkButtons()
         
+        titleLabel.text = String(localized: "MyPiggies")
+        
         addNewTargetButton.setTitle(String(localized: "AddNewTargetButton"),for: .normal)
+        
+        buttonAddMoney.setTitle(String(localized: "AddMoneyInPiggy"), for: .normal)
+        
+        
         
         if (piggyModel.getpiggyBanksCount()>0) {
             loadDataToView(index: 0)
@@ -85,7 +91,9 @@ class PiggyBankViewController: UIViewController {
         piggy = piggyModel.getpiggyBanks()
         if piggy == nil {return}
         viewActivator(acivated: false)
-        targetSummLabel.text = "Накопил \(piggy[index].targetMoney) из \((piggy[index].targetSumm))"
+      
+        targetSummLabel.text = String(format: String(localized: "PiggyBank"),"\(piggy[index].targetMoney)","\((piggy[index].targetSumm))")
+        
         
         
         let progress = Float(piggy[index].targetMoney) / Float(piggy[index].targetSumm)
@@ -127,8 +135,8 @@ class PiggyBankViewController: UIViewController {
     
     @IBAction func clickNewTargetButton(_ sender: UIButton)
     {
-        super.alertPresenterAddFound(title: "Новая цель",
-                                     message: "Введите данные",
+        super.alertPresenterAddFound(title: "NewTarget",
+                                     message: "InputData",
                                      textFields:
                                         [
                                             AlertTextFieldModel(placeholder: "Цель", keyboard: .default, isSecure: false),
@@ -160,8 +168,8 @@ class PiggyBankViewController: UIViewController {
     
     @IBAction func addMoneyToTarget(_ sender: UIButton)
     {
-        super.alertPresenterAddFound(title: "Добавить денег",
-                                     message: "Сколько закинуть?",
+        super.alertPresenterAddFound(title: "AddMoneyAlert",
+                                     message: "HowMuch",
                                      textFields:
                                         [
                                             AlertTextFieldModel(placeholder: "0", keyboard: .numberPad, isSecure: false)

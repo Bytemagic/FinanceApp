@@ -250,9 +250,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="kVV-c8-bsY"/>
                     <connections>
+                        <outlet property="buyTitle" destination="DHu-CO-WZ9" id="Lkk-34-Qsl"/>
+                        <outlet property="closeButton" destination="dbE-dt-JvN" id="r4O-Yg-axt"/>
                         <outlet property="expenceNameInputField" destination="1OB-fe-Kxb" id="HMo-nG-A3P"/>
                         <outlet property="pickerView" destination="dRw-7L-poo" id="LWf-UA-9nq"/>
+                        <outlet property="saveButton" destination="ahm-eT-nTQ" id="v3Z-CN-6Qk"/>
                         <outlet property="summOfExpenceInputField" destination="mbf-1b-U91" id="vBB-cK-btc"/>
+                        <outlet property="summTitle" destination="oaP-zt-TtO" id="lHu-1y-TRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bk1-2i-ywt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -416,6 +420,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqf-9B-TlO">
                                                 <rect key="frame" x="184" y="0.0" width="157" height="84"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Добавить цель"/>
                                                 <connections>
                                                     <action selector="clickNewTargetButton:" destination="ki4-Zf-npW" eventType="touchUpInside" id="arO-A1-WQp"/>
                                                 </connections>
@@ -667,9 +672,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="PdL-OV-o0I"/>
                     <connections>
+                        <outlet property="buyTitle" destination="gig-Vw-BOT" id="J4r-t9-DxP"/>
+                        <outlet property="closeButton" destination="OJV-F5-wkt" id="Yv7-Hs-6o9"/>
                         <outlet property="expenceNameInputField" destination="ylp-cf-mss" id="7Xi-hA-Bqh"/>
                         <outlet property="pickerView" destination="KQ1-vp-IdU" id="eqM-Y0-1xb"/>
+                        <outlet property="saveButton" destination="OHn-29-sW1" id="hcU-oY-s9C"/>
                         <outlet property="summOfExpenceInputField" destination="Zh5-lj-QQ3" id="G0g-fx-TsY"/>
+                        <outlet property="summTitle" destination="DhK-hZ-o6Z" id="owq-ym-TY9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46e-DE-HGt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

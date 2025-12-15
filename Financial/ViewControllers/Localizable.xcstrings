@@ -18,6 +18,40 @@
         }
       }
     },
+    "AddMoneyAlert" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add money"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Добавить денег"
+          }
+        }
+      }
+    },
+    "AddMoneyInPiggy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add money in piggy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Закинуть деньги в копилку"
+          }
+        }
+      }
+    },
     "AddNewTargetButton" : {
       "localizations" : {
         "en" : {
@@ -34,7 +68,41 @@
         }
       }
     },
+    "backButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Назад"
+          }
+        }
+      }
+    },
     "CloseAlert" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрыть"
+          }
+        }
+      }
+    },
+    "closeButton" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -152,6 +220,40 @@
         }
       }
     },
+    "HowMuch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How much?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сколько добавить"
+          }
+        }
+      }
+    },
+    "InputData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Input data"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Введите данные"
+          }
+        }
+      }
+    },
     "InputEveryDayAlert" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -254,6 +356,34 @@
         }
       }
     },
+    "MyPiggies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My piggy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мои копилки"
+          }
+        }
+      }
+    },
+    "NewTarget" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новая цель"
+          }
+        }
+      }
+    },
     "NoMoney" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -288,6 +418,39 @@
         }
       }
     },
+    "PiggyBank" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect %@ is %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Накопил %@ из %@"
+          }
+        }
+      }
+    },
+    "saveButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        }
+      }
+    },
     "StartFin" : {
       "localizations" : {
         "en" : {
@@ -317,6 +480,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Стартовые финансы"
+          }
+        }
+      }
+    },
+    "SummLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Summ of expence"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Сколько потрачено?"
+          }
+        }
+      }
+    },
+    "WhatBuyLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What’s buyed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Что куплено?"
           }
         }
       }

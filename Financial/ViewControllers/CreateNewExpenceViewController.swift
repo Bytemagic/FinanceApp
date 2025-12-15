@@ -11,12 +11,17 @@ class CreateNewExpenceViewController: UIViewController {
     
     var viewModel: ExpenseViewModel!
     
+    @IBOutlet weak var buyTitle: UILabel!
+    @IBOutlet weak var summTitle: UILabel!
+    
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var expenceNameInputField: UITextField!
     
     @IBOutlet weak var summOfExpenceInputField: UITextField!
     
     @IBOutlet weak var pickerView: UIPickerView!
     
+    @IBOutlet weak var closeButton: UIButton!
     var selectedCategory :Int = 0
     
     
@@ -27,8 +32,11 @@ class CreateNewExpenceViewController: UIViewController {
         pickerView.dataSource = self
         hideKeyboardWhenTappedAround()
         
+        buyTitle.text = String(localized: "WhatBuyLabel")
+        summTitle.text = String(localized: "SummLabel")
         
-        
+        saveButton.setTitle(String(localized: "saveButton"), for: .normal)
+        closeButton.setTitle(String(localized: "closeButton"), for: .normal)
         
         
     }

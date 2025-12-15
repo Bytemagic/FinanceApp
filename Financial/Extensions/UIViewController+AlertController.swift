@@ -25,7 +25,7 @@ extension UIViewController
                                 okTitle: String = "OK",
                                 onOK: @escaping ([String?]) -> Void)
     {
-        var alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         for textField in textFields {
             alertTextField(alertController: alertController, text: textField.placeholder,keyboardType: textField.keyboard)

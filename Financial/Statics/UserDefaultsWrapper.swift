@@ -29,6 +29,9 @@ class UserDefaultsWrapper
     func getBool(_ key: UserKeys) -> Bool {
         return UserDefaults.standard.bool(forKey :key.rawValue)
     }
+    func getData(_ key: UserKeys) -> Data? {
+        return UserDefaults.standard.data(forKey :key.rawValue)
+    }
     
     func setValue(forKey key: UserKeys, value: Any) {
         UserDefaults.standard.set(value, forKey: key.rawValue)
@@ -51,6 +54,8 @@ enum UserKeys : String
     case startMoney
     case everyDayMoney
     case piggyBank
+    case expences
+    case presentViewed
     
 }
 

@@ -14,9 +14,6 @@ struct MoneyModel : Codable
     let moneyFound : Int
     let expenceCategory : ExpenceType
     
-  
-    
-    
 }
 struct ExpenceSections :Codable
 {

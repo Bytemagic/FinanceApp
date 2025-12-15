@@ -40,7 +40,15 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewModel.getExpenses()[section].items.count
+        let expences = viewModel.getExpenses()
+        
+        if  expences.count > section
+        {
+            return expences[section].items.count
+        }
+        return 0
+        
+      
     }
     
     
@@ -55,29 +63,16 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return viewModel.getExpenses()[section].date
+        let expences = viewModel.getExpenses()
+        
+        if  expences.count > section
+        {
+            return expences[section].date
+        }
+        return ""
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let expence = viewModel.getExpenses()[indexPath.section]
-//        
-//        super.alertPresenterAddFound(title: "Расход", message: "Введите расход", textFields:
-//                                        [
-//                                            AlertTextFieldModel(placeholder: expence.items[indexPath.row].descFound, keyboard: .default, isSecure: false),
-//                                            AlertTextFieldModel(placeholder: String(expence.items[indexPath.row].moneyFound), keyboard: .numberPad, isSecure: false)
-//                                        ])
-//        {
-//            [weak self] values in
-//            guard let self = self else { return }
-//            var title = values[0] ?? expence.items[indexPath.row].descFound
-//            if title.count == 0 { title = expence.items[indexPath.row].descFound }
-//            let amount = Int(values[1] ?? "") ?? expence.items[indexPath.row].moneyFound
-//            let moneyExpence = MoneyModel(descFound: title, moneyFound: amount)
-//            self.viewModel.editExpense(forEdit : indexPath,money: moneyExpence)
-//            tableView.reloadData()
-//        }
-        
         
         if let editExpenceView = storyboard?.instantiateViewController(withIdentifier: "EditExpenceViewController") as? EditExpenceViewController
         {

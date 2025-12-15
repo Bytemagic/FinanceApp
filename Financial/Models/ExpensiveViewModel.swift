@@ -11,38 +11,32 @@ class ExpenseViewModel {
     
     private var expenses: [ExpenceSections] = [] {
         didSet {
-            saveExpenses()  // сохраняем автоматически при изменении
+            saveExpenses()
             
         }
     }
     
-    // Замыкание для оповещения view об обновлении
-    
-    func addExpense(descFound: String, moneyFound: Int,category: ExpenceType) {
-        
-        let newExpense = MoneyModel(descFound: descFound, moneyFound: moneyFound,expenceCategory: category)
-        
+    func addExpence(model : MoneyModel)
+    {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM" // Пример формата: 31 Декабря 2025
+        dateFormatter.dateFormat = "dd MMMM"
         dateFormatter.locale = Locale(identifier: "ru_RU")
         let formattedDate = dateFormatter.string(from:  Date())
         
         if let index = expenses.firstIndex(where: {$0.date == formattedDate})
         {
-            expenses[index].items.insert(newExpense, at: 0)
+            expenses[index].items.insert(model, at: 0)
             
         }
         else
         {
-            let expence = ExpenceSections(date: formattedDate, items: [newExpense])
+            let expence = ExpenceSections(date: formattedDate, items: [model])
             expenses.insert(expence, at: 0)
         }
         
-        
-        
-        
     }
+    
     func editExpense(forEdit : IndexPath,money: MoneyModel)
     {
         expenses[forEdit.section].items.remove(at: forEdit.row)
@@ -77,23 +71,22 @@ class ExpenseViewModel {
         return summ
     }
     
-    
-    private let key = "expenses"
-    
     func saveExpenses() {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(expenses) {
-            UserDefaults.standard.set(encoded, forKey: key)
+            UserDefaultsWrapper.instance.setValue(forKey: UserKeys.expences, value: encoded)
         }
     }
     
     func loadExpenses() {
-        guard let data = UserDefaults.standard.data(forKey: key) else { return }
+        
+        guard let data = UserDefaultsWrapper.instance.getData(UserKeys.expences)  else { return }
         let decoder = JSONDecoder()
         if let decoded = try? decoder.decode([ExpenceSections].self, from: data) {
             expenses = decoded
         }
     }
+    
     func removeExpense(forDelete index: IndexPath) {
         expenses[index.section].items.remove(at: index.row)
         

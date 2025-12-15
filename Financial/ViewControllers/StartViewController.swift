@@ -16,8 +16,8 @@ class StartViewController: UIViewController {
         let viewModel = ExpenseViewModel()
         viewModel.loadExpenses()
         
-        let userDefault = UserDefaults.standard
-        if userDefault.bool(forKey: "PresentViewed") == true
+       
+        if UserDefaultsWrapper.instance.getBool(.presentViewed) == true
         {
             if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController
             {

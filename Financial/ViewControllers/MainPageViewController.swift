@@ -138,10 +138,10 @@ class MainPageViewController: UIViewController {
     {
         let targetDate = Calendar.current.date(byAdding: .day, value: dayRemains, to: Date()) ?? Date()
         
-        // 3. Форматируем конечную дату для отображения
+      
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM" // Пример формата: 31 Декабря 2025
-        dateFormatter.locale = Locale(identifier: "ru_RU") // Устанавливаем русский язык
+        dateFormatter.dateFormat = "dd MMMM"
+        dateFormatter.locale = Locale(identifier: "ru_RU") 
         
         let formattedDate = dateFormatter.string(from: targetDate)
         

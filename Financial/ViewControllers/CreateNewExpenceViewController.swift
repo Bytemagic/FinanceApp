@@ -27,9 +27,6 @@ class CreateNewExpenceViewController: UIViewController {
         pickerView.dataSource = self
         hideKeyboardWhenTappedAround()
         
-       
-        
-        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -47,7 +44,10 @@ class CreateNewExpenceViewController: UIViewController {
         let title = expenceNameInputField.text ?? ""
         let amount = Int(summOfExpenceInputField.text ?? "") ?? 0
         if title.isEmpty && amount == 0 {return}
-        viewModel.addExpense(descFound: title, moneyFound: amount,category : ExpenceType.allCases[selectedCategory])
+        
+        let model = MoneyModel(descFound: title, moneyFound: amount,expenceCategory : ExpenceType.allCases[selectedCategory])
+        
+        viewModel.addExpence(model: model)
         dismiss(animated: true)
     }
 }

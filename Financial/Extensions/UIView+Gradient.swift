@@ -22,7 +22,6 @@ extension UIView
     }
     
     func getGradientForTable(tableView : UITableView) -> UIView
-    
     {
         let gradientView = UIView(frame: tableView.bounds)
         

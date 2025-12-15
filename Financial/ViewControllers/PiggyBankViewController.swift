@@ -31,21 +31,16 @@ class PiggyBankViewController: UIViewController {
         
         piggyModel = PiggyBankViewModel()
         piggyModel.loadExpenses()
-        
-        
         titleLabel.textColor = .white
-       
         targetSummLabel.textColor = .white
-        
         viewActivator(acivated: true)
         checkButtons()
+        
         if (piggyModel.getpiggyBanksCount()>0) {
             loadDataToView(index: 0)
             targetImage.isUserInteractionEnabled = true
-           
         }
         
-      
         let tapGestureStart = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         targetImage.addGestureRecognizer(tapGestureStart)
         
@@ -57,18 +52,16 @@ class PiggyBankViewController: UIViewController {
     
     @objc private func imageTapped(_ sender: UITapGestureRecognizer) {
         
-            var config = PHPickerConfiguration()
-           config.selectionLimit = 1
-           config.filter = .images
-
-           let picker = PHPickerViewController(configuration: config)
-           picker.delegate = self
-           present(picker, animated: true)
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 1
+        config.filter = .images
         
-       
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        present(picker, animated: true)
+        
+        
     }
-    
-    
     
     func createSegments()
     {
@@ -100,8 +93,6 @@ class PiggyBankViewController: UIViewController {
         targetProgress.setProgress(progress, animated: false)
         segmentTargets.selectedSegmentIndex = index
         
-        
-        
     }
     
     func viewActivator(acivated : Bool)
@@ -111,7 +102,6 @@ class PiggyBankViewController: UIViewController {
         targetProgress.isHidden = acivated
         targetImage.isHidden = acivated
         targetSummLabel.isHidden = acivated
-    
         buttonAddMoney.isHidden = acivated
         
         
@@ -119,17 +109,17 @@ class PiggyBankViewController: UIViewController {
     }
     func saveImageToDocuments(image: UIImage, name: String) {
         guard let data = image.jpegData(compressionQuality: 0.9) else { return }
-
+        
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent(name)
-
+        
         try? data.write(to: url)
     }
     
     func loadImageFromDocuments(name: String) -> UIImage? {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent(name)
-
+        
         return UIImage(contentsOfFile: url.path)
     }
     
@@ -184,7 +174,7 @@ class PiggyBankViewController: UIViewController {
             self.piggyModel.changeMoney(index: segmentTargets.selectedSegmentIndex,money : money)
             loadDataToView(index: segmentTargets.selectedSegmentIndex)
             
-           
+            
         }
     }
     
@@ -193,42 +183,36 @@ class PiggyBankViewController: UIViewController {
     
 }
 extension PiggyBankViewController: PHPickerViewControllerDelegate {
-
-   
+    
+    
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
-
-        // ✅ Пользователь нажал "Отмена"
+        
+        
         if results.isEmpty {
             print("Выбор изображения отменён")
             return
         }
-
+        
         guard let provider = results.first?.itemProvider else { return }
-
+        
         if provider.canLoadObject(ofClass: UIImage.self) {
-
+            
             provider.loadObject(ofClass: UIImage.self) { [weak self] image, _ in
                 guard let self = self else { return }
-
+                
                 DispatchQueue.main.async {
-
+                    
                     guard let selectedImage = image as? UIImage else { return }
-
-                    // ✅ 1. УСТАНАВЛИВАЕМ НА ЭКРАН
                     self.targetImage.image = selectedImage
-
-                    // ✅ 2. ПОЛУЧАЕМ ИМЯ ФАЙЛА ИЗ МОДЕЛИ
                     let index = self.segmentTargets.selectedSegmentIndex
                     let imageName = self.piggy[index].targetImage
-
-                    // ✅ 3. СОХРАНЯЕМ В DOCUMENTS
                     self.saveImageToDocuments(
                         image: selectedImage,
                         name: imageName
                     )
-
+                    
                     print("Изображение сохранено: \(imageName)")
                 }
             }

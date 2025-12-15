@@ -8,7 +8,7 @@
 import UIKit
 
 class ContentViewController: UIViewController {
-
+    
     @IBOutlet weak var presentLabel: UILabel!
     @IBOutlet weak var emojiLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
@@ -31,11 +31,11 @@ class ContentViewController: UIViewController {
     }
     
     @IBAction func clickClose(_ sender: UIButton) {
-        let userDefault = UserDefaults.standard
-        userDefault.set(true, forKey: "PresentViewed")
+        
+        UserDefaultsWrapper.instance.setValue(forKey: .presentViewed, value: true)
         dismiss(animated: true)
     }
     
-
+    
     
 }

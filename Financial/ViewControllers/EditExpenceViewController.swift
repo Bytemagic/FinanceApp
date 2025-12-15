@@ -17,6 +17,7 @@ class EditExpenceViewController: UIViewController {
     
     @IBOutlet weak var pickerView: UIPickerView!
     
+    
     var choosedIndex = IndexPath()
     var selectedCategory :Int = 0
    
@@ -27,16 +28,18 @@ class EditExpenceViewController: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        
-    
         hideKeyboardWhenTappedAround()
  
-        let expence = viewModel.getExpenses()[choosedIndex.section]
-      
-        expenceNameInputField.text = expence.items[choosedIndex.row].descFound
-        summOfExpenceInputField.text = "\(expence.items[choosedIndex.row].moneyFound)"
-        var enumIndex = ExpenceType.allCases.firstIndex(of: expence.items[choosedIndex.row].expenceCategory)
-        pickerView.selectRow(enumIndex!, inComponent: 0, animated: true)
+        let expence = viewModel.getExpenses()
+        
+        if expence.count>choosedIndex.section
+        {
+            expenceNameInputField.text = expence[choosedIndex.section].items[choosedIndex.row].descFound
+            summOfExpenceInputField.text = "\(expence[choosedIndex.section].items[choosedIndex.row].moneyFound)"
+            let enumIndex = ExpenceType.allCases.firstIndex(of: expence[choosedIndex.section].items[choosedIndex.row].expenceCategory)
+            pickerView.selectRow(enumIndex!, inComponent: 0, animated: true)
+        }
+       
         
     }
     
@@ -61,7 +64,7 @@ class EditExpenceViewController: UIViewController {
         
         let moneyExpence = MoneyModel(descFound: title, moneyFound: amount, expenceCategory : ExpenceType.allCases[selectedCategory])
         viewModel.editExpense(forEdit : choosedIndex,money: moneyExpence)
-       
+      
         dismiss(animated: true)
     }
     

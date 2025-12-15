@@ -35,10 +35,6 @@ class PiggyBankViewModel
         let newExpense = PiggyBankModel(targetName: descFound, targetImage: "Image\(nameForImage)", targetSumm: moneyFound, targetMoney: 0)
         piggyBank.append(newExpense)
         
-        
-        
-        
-        
     }
     
     func changeMoney(index : Int, money : Int)

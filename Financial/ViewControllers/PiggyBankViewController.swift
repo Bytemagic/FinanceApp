@@ -36,7 +36,24 @@ class PiggyBankViewController: UIViewController {
         viewActivator(acivated: true)
         checkButtons()
         
-        titleLabel.text = String(localized: "MyPiggies")
+        let url = URL(string: "https://www.cbr-xml-daily.ru/daily_json.js")!
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { print("Нет данных"); return }
+            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let valute = json["Valute"] as? [String: Any],
+               let usd = valute["USD"] as? [String: Any],
+               let value = usd["Value"] as? Double {
+                print("Официальный курс USD к RUB:", value)
+                DispatchQueue.main.async {
+                    self.titleLabel.text = "\(value)"
+                }
+            } else {
+                print("Не получилось обработать ответ")
+            }
+        }
+        task.resume()
+       
+       // titleLabel.text = String(localized: "MyPiggies")
         
         addNewTargetButton.setTitle(String(localized: "AddNewTargetButton"),for: .normal)
         

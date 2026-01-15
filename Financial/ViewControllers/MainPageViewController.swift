@@ -13,8 +13,8 @@ class MainPageViewController: UIViewController {
     var viewModel: ExpenseViewModel!
     
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var startBalanceInfoLabel: UILabel!
-    @IBOutlet weak var currrentDayUseMoney: UILabel!
+    @IBOutlet weak var startBalanceInfoLabel: TouchableLabel!
+    @IBOutlet weak var currrentDayUseMoney: TouchableLabel!
     @IBOutlet weak var dayRemainsLabel: UILabel!
     @IBOutlet weak var reactLabel: UILabel!
     
@@ -24,9 +24,9 @@ class MainPageViewController: UIViewController {
     {
         didSet
         {
-          
+            startBalanceInfoLabel.setText(text: String(format: String(localized: "StartFin"),"\(startMoney)"))
             
-            startBalanceInfoLabel.text = String(format: String(localized: "StartFin"),"\(startMoney)")
+           
             
             calculateDays()
         }
@@ -35,9 +35,9 @@ class MainPageViewController: UIViewController {
     {
         didSet
         {
-         
             
-            currrentDayUseMoney.text = String(format: String(localized: "EveryDayMiddle"),"\(everyDayMoney)")
+            currrentDayUseMoney.setText(text:String(format: String(localized: "EveryDayMiddle"),"\(everyDayMoney)"))
+            
             
             calculateDays()
         }
@@ -70,11 +70,20 @@ class MainPageViewController: UIViewController {
         startBalanceInfoLabel.isUserInteractionEnabled = true
         currrentDayUseMoney.isUserInteractionEnabled = true
         
+        startBalanceInfoLabel.onTap = { [weak self] in
+            
+            self?.clickStartMoney()
+            
+            
+        }
         
-        let tapGestureStart = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
-        startBalanceInfoLabel.addGestureRecognizer(tapGestureStart)
-        let tapGestureEvery = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
-        currrentDayUseMoney.addGestureRecognizer(tapGestureEvery)
+        currrentDayUseMoney.onTap = { [weak self] in
+            
+            self?.clickEveryDayMoney()
+            
+            
+        }
+     
         
     }
     
@@ -87,60 +96,60 @@ class MainPageViewController: UIViewController {
         view.setGradientBackground()
     }
     
-    @objc private func labelTapped(_ sender: UITapGestureRecognizer) {
-        // sender.view — это объект, на который нажали
-        if let label = sender.view as? UILabel {
+    func clickStartMoney()
+    {
+        alertPresenterAddFound(title: "StartFinAlert",
+                               message: "InputStartMoneyAlert",
+                               textFields:
+                                [
+                                    AlertTextFieldModel(placeholder: String(startMoney), keyboard: .numberPad, isSecure: false),
+                                    
+                                ]
+                               ,cancelTitle: "CloseAlert",
+                               okTitle: "OkAlert"
+        )
+        { [weak self] values in
+            guard let self = self else { return }
             
-            
-            if label == startBalanceInfoLabel
+            let title = values[0] ?? ""
+            if let money = Int(title)
             {
-                super.alertPresenterAddFound(title: "StartFinAlert",
-                                             message: "InputStartMoneyAlert",
-                                             textFields:
-                                                [
-                                                    AlertTextFieldModel(placeholder: String(self.startMoney), keyboard: .numberPad, isSecure: false),
-                                                    
-                                                ]
-                                             ,cancelTitle: "CloseAlert",
-                                             okTitle: "OkAlert"
-                )
-                { [weak self] values in
-                    guard let self = self else { return }
-                    
-                    let title = values[0] ?? ""
-                    if let money = Int(title)
-                    {
-                        self.startMoney = money
-                        
-                    }
-                    
-                }
+                self.startMoney = money
                 
-            } else if label == currrentDayUseMoney
+            }
+            
+        }
+        
+        
+    }
+    
+    func clickEveryDayMoney()
+    {
+        super.alertPresenterAddFound(title: "EveryDayAlert",
+                                     message: "InputEveryDayAlert",
+                                     textFields:
+                                        [
+                                            AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
+                                            
+                                        ]
+                                     ,cancelTitle: "CloseAlert",
+                                     okTitle: "OkAlert"
+        )
+        { [weak self] values in
+            guard let self = self else { return }
+            
+            let title = values[0] ?? ""
+            if let money = Int(title)
             {
-                super.alertPresenterAddFound(title: "EveryDayAlert",
-                                             message: "InputEveryDayAlert",
-                                             textFields:
-                                                [
-                                                    AlertTextFieldModel(placeholder: String(self.everyDayMoney), keyboard: .numberPad, isSecure: false),
-                                                    
-                                                ]
-                                             ,cancelTitle: "CloseAlert",
-                                             okTitle: "OkAlert"
-                )
-                { [weak self] values in
-                    guard let self = self else { return }
-                    
-                    let title = values[0] ?? ""
-                    if let money = Int(title)
-                    {
-                        self.everyDayMoney = money
-                        
-                    }
-                }
+                self.everyDayMoney = money
+                
             }
         }
+        
+        
     }
+    
+  
     
     
     
@@ -148,10 +157,10 @@ class MainPageViewController: UIViewController {
     {
         let targetDate = Calendar.current.date(byAdding: .day, value: dayRemains, to: Date()) ?? Date()
         
-      
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM"
-        dateFormatter.locale = Locale(identifier: "ru_RU") 
+        dateFormatter.locale = Locale(identifier: "ru_RU")
         
         let formattedDate = dateFormatter.string(from: targetDate)
         
@@ -160,7 +169,7 @@ class MainPageViewController: UIViewController {
         {
             dayRemainsLabel.text = String(format: String(localized:"MoneyDayRemains"), "\(dayRemains)","\(formattedDate)")
             reactLabel.text = String(format: String(localized :"MoneyOnDeposit"), "\(moneyRemains)")
-         
+            
         }
         else
         {

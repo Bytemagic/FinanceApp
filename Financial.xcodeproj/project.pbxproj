@@ -28,6 +28,7 @@
 		04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2B2EDD912200FF630E /* HistoryTableViewController.swift */; };
 		04E89C2E2EDD9F0400FF630E /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */; };
 		04E89C302EDD9FC800FF630E /* ExpensiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */; };
+		3094DB532F19034000BE85F7 /* TouchableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094DB522F19034000BE85F7 /* TouchableLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		04E89C2B2EDD912200FF630E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensiveViewModel.swift; sourceTree = "<group>"; };
+		3094DB522F19034000BE85F7 /* TouchableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchableLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				045004D22EE084D0004CC81B /* UIView+Gradient.swift */,
 				04CDE19A2EE18F39003C8707 /* UIViewController+AlertController.swift */,
+				3094DB512F19030500BE85F7 /* Labels */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -142,6 +145,14 @@
 				040CC1832EF00D08007AF1C6 /* Localizable.xcstrings */,
 			);
 			path = Financial;
+			sourceTree = "<group>";
+		};
+		3094DB512F19030500BE85F7 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				3094DB522F19034000BE85F7 /* TouchableLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 				04C922E32EDC53F70060CE0B /* AppDelegate.swift in Sources */,
 				04E89C302EDD9FC800FF630E /* ExpensiveViewModel.swift in Sources */,
 				04C922E52EDC53F70060CE0B /* SceneDelegate.swift in Sources */,
+				3094DB532F19034000BE85F7 /* TouchableLabel.swift in Sources */,
 				045004D32EE084D0004CC81B /* UIView+Gradient.swift in Sources */,
 				04E0E1C12EEAB4D10067E9AD /* EditExpenceViewController.swift in Sources */,
 				044DA6AC2EDDE463007090E7 /* PageViewController.swift in Sources */,
@@ -383,7 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9SGNXW9R54;
+				DEVELOPMENT_TEAM = TXUA62Y7SK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Financial/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Мои Финансы";
@@ -417,7 +429,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9SGNXW9R54;
+				DEVELOPMENT_TEAM = TXUA62Y7SK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Financial/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Мои Финансы";

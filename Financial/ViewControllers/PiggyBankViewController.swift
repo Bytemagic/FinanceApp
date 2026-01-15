@@ -97,7 +97,6 @@ class PiggyBankViewController: UIViewController {
         
         
         let progress = Float(piggy[index].targetMoney) / Float(piggy[index].targetSumm)
-        targetImage.image = UIImage(named: "Sample")
         targetImage.image = loadImageFromDocuments(name : piggy[index].targetImage)
         if targetImage.image == nil {   targetImage.image = UIImage(named: "Sample") }
         targetProgress.setProgress(progress, animated: false)

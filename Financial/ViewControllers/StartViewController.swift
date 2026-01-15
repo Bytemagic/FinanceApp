@@ -17,26 +17,25 @@ class StartViewController: UIViewController {
         viewModel.loadExpenses()
         
        
-        if UserDefaultsWrapper.instance.getBool(.presentViewed) == true
-        {
-            if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController
-            {
+        if UserDefaultsWrapper.instance.getBool(.presentViewed) {
+            if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController {
                 tabBarController.modalPresentationStyle = .fullScreen
-                if let addVC = tabBarController.viewControllers?[0] as? MainPageViewController {
-                    addVC.viewModel = viewModel
+                tabBarController.viewControllers?.forEach { vc in
+                    if let addVC = vc as? MainPageViewController {
+                        addVC.viewModel = viewModel
+                    }
+                    if let listVC = vc as? HistoryTableViewController {
+                        listVC.viewModel = viewModel
+                    }
                 }
-                if let listVC = tabBarController.viewControllers?[1] as? HistoryTableViewController {
-                    listVC.viewModel = viewModel
-                }
-                present(tabBarController,animated: true,completion: nil)
+                present(tabBarController, animated: true, completion: nil)
             }
             return
         }
-        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController
-        {
+
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController {
             pageViewController.modalPresentationStyle = .fullScreen
-            present(pageViewController,animated: true,completion: nil)
-            
+            present(pageViewController, animated: true, completion: nil)
         }
         
     }

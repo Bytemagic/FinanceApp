@@ -6,5 +6,5 @@ target 'Financial' do
   use_frameworks!
 
   # Pods for Financial
-	pod 'Alamofire'
+	pod 'Alamofire', '5.11.0'
 end

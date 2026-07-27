@@ -28,6 +28,7 @@
 		04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2B2EDD912200FF630E /* HistoryTableViewController.swift */; };
 		04E89C2E2EDD9F0400FF630E /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */; };
 		04E89C302EDD9FC800FF630E /* ExpensiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */; };
+		303A44483017C35C0091BC55 /* GasolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A44473017C35C0091BC55 /* GasolineViewController.swift */; };
 		3094DB532F19034000BE85F7 /* TouchableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094DB522F19034000BE85F7 /* TouchableLabel.swift */; };
 		3094DB552F19127800BE85F7 /* WebRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094DB542F19127800BE85F7 /* WebRequestWrapper.swift */; };
 		B5F0A04174242BA6163E4C21 /* Pods_Financial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34499F492816DDC5F026D0BA /* Pods_Financial.framework */; };
@@ -58,6 +59,7 @@
 		04E89C2D2EDD9F0400FF630E /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		04E89C2F2EDD9FC800FF630E /* ExpensiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensiveViewModel.swift; sourceTree = "<group>"; };
 		07CBE95E1BCC4AFFA50E0E2A /* Pods-Financial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Financial.debug.xcconfig"; path = "Target Support Files/Pods-Financial/Pods-Financial.debug.xcconfig"; sourceTree = "<group>"; };
+		303A44473017C35C0091BC55 /* GasolineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasolineViewController.swift; sourceTree = "<group>"; };
 		3094DB522F19034000BE85F7 /* TouchableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchableLabel.swift; sourceTree = "<group>"; };
 		3094DB542F19127800BE85F7 /* WebRequestWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRequestWrapper.swift; sourceTree = "<group>"; };
 		34499F492816DDC5F026D0BA /* Pods_Financial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Financial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 				049D47FC2EE305E800C753CF /* PiggyBankViewController.swift */,
 				04AA2F4D2EE737D10016CF36 /* CreateNewExpenceViewController.swift */,
 				04E0E1C02EEAB4D10067E9AD /* EditExpenceViewController.swift */,
+				303A44473017C35C0091BC55 /* GasolineViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -179,7 +182,6 @@
 				07CBE95E1BCC4AFFA50E0E2A /* Pods-Financial.debug.xcconfig */,
 				EE67B17AB1D6C06D00138070 /* Pods-Financial.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -261,9 +263,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Financial/Pods-Financial-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Financial/Pods-Financial-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -303,6 +309,7 @@
 				04E89C2E2EDD9F0400FF630E /* MoneyModel.swift in Sources */,
 				04CDE19B2EE18F39003C8707 /* UIViewController+AlertController.swift in Sources */,
 				044DA6AA2EDDE39F007090E7 /* StartViewController.swift in Sources */,
+				303A44483017C35C0091BC55 /* GasolineViewController.swift in Sources */,
 				04E89C2C2EDD912200FF630E /* HistoryTableViewController.swift in Sources */,
 				04AA2F4E2EE737D10016CF36 /* CreateNewExpenceViewController.swift in Sources */,
 				049D47FB2EE2C60E00C753CF /* UserDefaultsWrapper.swift in Sources */,
@@ -478,7 +485,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +520,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
